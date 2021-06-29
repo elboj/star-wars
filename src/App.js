@@ -1,10 +1,11 @@
 import React from "react";
 import "./styles.scss";
+import HeroSection from "./components/HeroSection";
 
 const App = () => {
   return (
     <div>
-      <h1>Main App</h1>
+      <HeroSection />
     </div>
   );
 };
