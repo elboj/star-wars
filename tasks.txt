@@ -1,5 +1,5 @@
-PENDING TASK........
+PENDING TASK FOR HERO SECTION........
 
 remove the focus from the input and place the focus instead on the form
-
 use regex to check for correct form input, as well as carry out formatting
+format the place holder
