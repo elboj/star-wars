@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { AppBar, Toolbar, Typography, TextField } from "@material-ui/core";
 import { GoSearch } from "react-icons/go";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -8,13 +9,24 @@ import useStyles from "./Herostyles";
 
 const HeroSection = () => {
   const classes = useStyles();
+  const [query, setQuery] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(query);
+    setQuery("");
+  };
+
   return (
     <section
       className="main-hero-container"
       style={{ backgroundImage: `url(${hero})` }}
     >
       <div className="main-hero-app-bar">
-        <AppBar position="fixed" className={classes.appbar} color="transparent">
+        <AppBar
+          position="static"
+          className={classes.appbar}
+          color="transparent"
+        >
           <Toolbar>
             <Typography>
               <img src={logo} alt="star-wars" height="35px" />
@@ -35,11 +47,18 @@ const HeroSection = () => {
           <p className="mhc-body">Starships and Planets</p>
         </article>
         <div className="main-hero-input">
-          <form className="mhi-form">
+          <form className="mhi-form" onSubmit={handleSubmit}>
             <button className="mhi-button">
               <GoSearch />
             </button>
-            <input type="text" className="mhi-field" />
+            <input
+              type="text"
+              className="mhi-field"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
+            />
             <button className="mhi-button">
               <TiDeleteOutline />
             </button>
