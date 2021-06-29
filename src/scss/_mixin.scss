@@ -4,3 +4,26 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin underline {
+  width: 70%;
+  height: 0.2rem;
+  margin-bottom: 1.25rem;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin bg-center {
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+}
