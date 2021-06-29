@@ -3,8 +3,8 @@ import { useState } from "react";
 import { AppBar, Toolbar, Typography, TextField } from "@material-ui/core";
 import { GoSearch } from "react-icons/go";
 import { TiDeleteOutline } from "react-icons/ti";
-import logo from "../assets/logo.png";
-import hero from "../assets/hero.jpg";
+import logo from "../../assets/logo.png";
+import hero from "../../assets/hero.jpg";
 import useStyles from "./Herostyles";
 
 const HeroSection = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.scss";
-import HeroSection from "./components/HeroSection";
+import { HeroSection } from "./components/index";
 
 const App = () => {
   return (
