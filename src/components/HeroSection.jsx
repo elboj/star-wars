@@ -10,6 +10,8 @@ import useStyles from "./Herostyles";
 const HeroSection = () => {
   const classes = useStyles();
   const [query, setQuery] = useState("");
+  const [clear, setClear] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(query);
@@ -49,7 +51,7 @@ const HeroSection = () => {
         <div className="main-hero-input">
           <form className="mhi-form" onSubmit={handleSubmit}>
             <button className="mhi-button">
-              <GoSearch />
+              <GoSearch size="1.2rem" />
             </button>
             <input
               type="text"
@@ -60,7 +62,14 @@ const HeroSection = () => {
               }}
             />
             <button className="mhi-button">
-              <TiDeleteOutline />
+              {query && (
+                <TiDeleteOutline
+                  size="1.5rem"
+                  onClick={() => {
+                    setQuery("");
+                  }}
+                />
+              )}
             </button>
           </form>
         </div>

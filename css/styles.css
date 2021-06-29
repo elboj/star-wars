@@ -100,7 +100,6 @@ h4 {
 .main-hero-container .main-hero-content .main-hero-input {
   width: 50%;
   margin: 3rem 0;
-  border: 2px solid blue;
 }
 
 .main-hero-container .main-hero-content .main-hero-input .mhi-form {
@@ -111,6 +110,7 @@ h4 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  border-radius: 1.25rem;
   width: 100%;
 }
 
@@ -124,7 +124,6 @@ h4 {
 .main-hero-container .main-hero-content .main-hero-input .mhi-form .mhi-button {
   width: 2.5rem;
   background-color: #e8e6e6;
-  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -138,7 +137,6 @@ h4 {
   }
   .main-hero-input {
     width: 80% !important;
-    border: 2px solid red;
   }
 }
 /*# sourceMappingURL=styles.css.map */
