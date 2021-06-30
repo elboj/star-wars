@@ -1,6 +1,6 @@
 import React from "react";
-import ShipBP from "./StarShipBoilerPlate/ShipBP";
-import PlanetBP from "./PlanetBoilerPlate/PlanetBP";
+import ShipBP from "../StarShipBoilerPlate/ShipBP";
+import PlanetBP from "../PlanetBoilerPlate/PlanetBP";
 import { Container, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 

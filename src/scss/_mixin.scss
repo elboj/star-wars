@@ -40,3 +40,22 @@
   position: relative;
   color: white;
 }
+
+@mixin more-btn-container {
+  @include flex-row;
+  justify-content: $center;
+  padding: 3rem 0;
+}
+
+@mixin more-btn {
+  width: 100%;
+  border: 2px solid black;
+}
+
+/* VARIABLES */
+$center: center;
+$left: flex-start;
+$right: flex-end;
+
+$equal-spacing: space-between;
+$border-spacing: space-around;

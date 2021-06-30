@@ -1,2 +1,2 @@
 export { default as HeroSection } from "./HeroSection/HeroSection";
-export { default as HomeDisplay } from "./HomeDisplay/HomeDisplay";
+export { default as HomeDisplay } from "./HomeDisplay/Home/HomeDisplay";
