@@ -52,12 +52,7 @@ const ShipBP = ({ starShip }) => {
         })}
       </Grid>
       <Container maxWidth="sm" className="btn-holder">
-        <Button
-          variant="outlined"
-          color="standard"
-          className="more-btn"
-          // startIcon={<DeleteIcon />}
-        >
+        <Button variant="outlined" color="standard" className="more-btn">
           View more
         </Button>
       </Container>
