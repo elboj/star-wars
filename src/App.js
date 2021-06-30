@@ -2,7 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./styles.scss";
-import { HeroSection } from "./components/index";
+import { HeroSection, HomeDisplay } from "./components/index";
 import axios from "axios";
 
 const App = () => {
@@ -27,9 +27,6 @@ const App = () => {
         setPeople(allPeople);
         setPlanet(allPlanet);
         setStarShip(allStarShip);
-        console.log(people);
-        console.log(planet);
-        console.log(starShip);
       })
     );
   };
@@ -39,9 +36,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <HeroSection />
-    </div>
+      <main className="main-container">
+        <HomeDisplay starShip={starShip} />
+      </main>
+    </>
   );
 };
 

@@ -1,0 +1,11 @@
+.hd-underline {
+  @include section-underline;
+}
+
+.hd-container {
+  @include flex-column;
+  border: 2px solid blue;
+  padding: 2rem 0;
+  width: 90vw;
+  align-items: center;
+}
