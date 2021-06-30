@@ -13,7 +13,13 @@ const useStyles = makeStyles((theme) => ({
 
   media: {
     [theme.breakpoints.down("sm")]: {
-      height: "300px !important",
+      height: "290px !important",
+    },
+  },
+
+  banner: {
+    [theme.breakpoints.down("sm")]: {
+      height: "auto !important",
     },
   },
 }));

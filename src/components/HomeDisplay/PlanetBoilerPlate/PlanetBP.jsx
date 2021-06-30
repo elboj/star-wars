@@ -61,7 +61,7 @@ function Banner(props) {
   }
 
   return (
-    <Card raised className="Banner">
+    <Card raised className={`Banner ${classes.banner}`}>
       <Grid container spacing={2} className="BannerGrid">
         {items}
       </Grid>
