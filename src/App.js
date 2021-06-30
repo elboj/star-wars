@@ -36,19 +36,10 @@ const App = () => {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <>
-      <HeroSection />
-      <main className="main-container">
-        <HomeDisplay starShip={starShip} />
-      </main>
-    </>
-=======
     <main>
       <HeroSection />
       <HomeDisplay starShip={starShip} />
     </main>
->>>>>>> homeDisplay
   );
 };
 
