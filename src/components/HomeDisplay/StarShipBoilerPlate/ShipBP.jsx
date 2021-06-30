@@ -1,47 +1,16 @@
 import React from "react";
 import {
   Typography,
-  AppBar,
   Card,
   CardMedia,
   CardContent,
   CardActions,
-  CssBaseline,
   Grid,
-  Toolbar,
   Container,
   Button,
 } from "@material-ui/core";
 import useStyles from "./style";
-import picture from "../../../assets/starship-1.jpg";
-import picture2 from "../../../assets/starship-2.jpg";
-import picture3 from "../../../assets/starship-3.jpg";
-import picture4 from "../../../assets/starship-4.jpg";
-import picture5 from "../../../assets/starship-5.jpg";
-import picture6 from "../../../assets/starship-6.jpg";
-
-const ssImages = [
-  {
-    src: picture,
-  },
-  {
-    src: picture2,
-  },
-  {
-    src: picture3,
-  },
-  {
-    src: picture4,
-  },
-  {
-    src: picture5,
-  },
-  {
-    src: picture6,
-  },
-];
-
-console.log(ssImages[3].src);
+import { ssImages } from "../../../data/imgSS";
 
 const card = [1, 2, 3, 4, 5, 6];
 //styling can be found in parent component scss file i.e homeDisplay.scss
