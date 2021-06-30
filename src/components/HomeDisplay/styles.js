@@ -9,6 +9,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
+  sectionHeading: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5rem",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2rem",
+    },
+  },
 }));
 
 export default useStyles;
