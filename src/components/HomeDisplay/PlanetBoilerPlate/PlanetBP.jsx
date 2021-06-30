@@ -1,9 +1,9 @@
 import React from "react";
+import { items } from "../../../data/imgPlanet";
 import Carousel from "react-material-ui-carousel";
 import autoBind from "auto-bind";
 import "../../../scss/_Example.scss";
 import useStyles from "./styles";
-
 import {
   Card,
   CardMedia,
@@ -68,54 +68,6 @@ function Banner(props) {
     </Card>
   );
 }
-
-const items = [
-  {
-    Name: "Macbook Pro",
-    Image: "https://source.unsplash.com/featured/?macbook",
-    contentPosition: "left",
-    Items: [
-      {
-        Name: "Macbook Pro",
-        Image: "https://source.unsplash.com/featured/?macbook",
-      },
-      {
-        Name: "iPhone",
-        Image: "https://source.unsplash.com/featured/?iphone",
-      },
-    ],
-  },
-  {
-    Name: "Home Appliances",
-    Image: "https://source.unsplash.com/featured/?macbook",
-    contentPosition: "middle",
-    Items: [
-      {
-        Name: "Washing Machine WX9102",
-        Image: "https://source.unsplash.com/featured/?washingmachine",
-      },
-      {
-        Name: "Learus Vacuum Cleaner",
-        Image: "https://source.unsplash.com/featured/?vacuum,cleaner",
-      },
-    ],
-  },
-  {
-    Name: "Decoratives",
-    Image: "https://source.unsplash.com/featured/?macbook",
-    contentPosition: "right",
-    Items: [
-      {
-        Name: "Living Room Lamp",
-        Image: "https://source.unsplash.com/featured/?lamp",
-      },
-      {
-        Name: "Floral Vase",
-        Image: "https://source.unsplash.com/featured/?vase",
-      },
-    ],
-  },
-];
 
 class BannerExample extends React.Component {
   constructor(props) {
@@ -189,26 +141,6 @@ class BannerExample extends React.Component {
             cycleNavigation={this.state.cycleNavigation}
             navButtonsAlwaysVisible={this.state.navButtonsAlwaysVisible}
             navButtonsAlwaysInvisible={this.state.navButtonsAlwaysInvisible}
-            next={(now, previous) =>
-              console.log(
-                `Next User Callback: Now displaying child${now}. Previously displayed child${previous}`
-              )
-            }
-            prev={(now, previous) =>
-              console.log(
-                `Prev User Callback: Now displaying child${now}. Previously displayed child${previous}`
-              )
-            }
-            onChange={(now, previous) =>
-              console.log(
-                `OnChange User Callback: Now displaying child${now}. Previously displayed child${previous}`
-              )
-            }
-            // fullHeightHover={false}
-            // navButtonsProps={{style: {backgroundColor: 'cornflowerblue', borderRadius: 0}}}
-            // navButtonsWrapperProps={{style: {bottom: '0', top: 'unset', }}}
-            // indicatorContainerProps={{style: {margin: "20px"}}}
-            // NextIcon='next'
           >
             {items.map((item, index) => {
               return (
