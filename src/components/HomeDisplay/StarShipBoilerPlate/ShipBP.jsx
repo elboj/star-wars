@@ -28,8 +28,7 @@ const ShipBP = ({ starShip }) => {
                 <CardMedia image={ssImages[index].src} className="card-media" />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h6">
-                    {/* {results[index].name} */}
-                    {/* read note pad to see the reason for the error */}
+                    {ssImages[index].title}
                   </Typography>
                   <Typography>
                     This is a media card you can use this media to describe the
