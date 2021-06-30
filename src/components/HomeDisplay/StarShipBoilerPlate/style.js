@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     height: 0,
-    paddingTop: "56.25%", // 16:9,
+    paddingTop: "80.25%", // 16:9, 56.25
     marginTop: "30",
   },
   action: {
