@@ -15,13 +15,6 @@ const HomeDisplay = ({ starShip }) => {
         <div className="hd-underline"></div>
       </Container>
       <ShipBP starShip={starShip} />
-      {/* <Container maxWidth="md" className={classes.container}>
-        <Typography variant="h2" align="center">
-          Popular Starships
-          <div className="hd-underline"></div>
-        </Typography>
-        <ShipBP starShip={starShip} />
-      </Container> */}
     </div>
   );
 };
