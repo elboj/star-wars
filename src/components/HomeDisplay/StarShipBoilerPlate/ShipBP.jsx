@@ -12,12 +12,12 @@ import {
 import useStyles from "./style";
 import { ssImages } from "../../../data/imgSS";
 
-const card = [1, 2, 3, 4, 5, 6];
+const card = [0, 1, 2, 3, 4, 5];
 //styling can be found in parent component scss file i.e homeDisplay.scss
 
 const ShipBP = ({ starShip }) => {
   const { count, next, results } = starShip;
-  console.log(results[0].name);
+  // console.log(results[0].name);
   const classes = useStyles();
   return (
     <Container maxWidth="md" className={classes.container}>
@@ -32,7 +32,7 @@ const ShipBP = ({ starShip }) => {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h6">
-                    {results[index].name}
+                    {/* {results[index].name} */}
                   </Typography>
                   <Typography>
                     This is a media card you can use this media to describe the
@@ -43,7 +43,7 @@ const ShipBP = ({ starShip }) => {
                   <Button
                     className={classes.button}
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     href="#contained-buttons"
                   >
                     Read More
@@ -54,6 +54,16 @@ const ShipBP = ({ starShip }) => {
           );
         })}
       </Grid>
+      <Container maxWidth="sm" className={classes.btnHolder}>
+        <Button
+          variant="outlined"
+          color="black"
+          className={classes.rmButton}
+          // startIcon={<DeleteIcon />}
+        >
+          View more
+        </Button>
+      </Container>
     </Container>
   );
 };

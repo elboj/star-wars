@@ -23,6 +23,17 @@ const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: "black",
   },
+  btnHolder: {
+    // border: "2px solid green",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: "3rem 0",
+  },
+  rmButton: {
+    width: "70%",
+    border: "2px solid black",
+  },
 }));
 
 export default useStyles;
