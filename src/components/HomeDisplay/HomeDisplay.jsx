@@ -20,6 +20,16 @@ const HomeDisplay = ({ starShip }) => {
         <div className="hd-underline"></div>
       </Container>
       <ShipBP starShip={starShip} />
+      <Container className={classes.container}>
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.sectionHeading}
+        >
+          Popular Planets
+        </Typography>
+        <div className="hd-underline"></div>
+      </Container>
       <PlanetBP />
     </div>
   );

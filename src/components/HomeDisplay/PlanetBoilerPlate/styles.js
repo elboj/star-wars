@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       border: "2px solid green",
-      fontSize: "1rem !important",
+      fontSize: "1.3rem !important",
       paddingBottom: "1.5rem !important",
     },
   },
