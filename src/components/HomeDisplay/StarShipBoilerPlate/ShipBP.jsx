@@ -54,7 +54,7 @@ const ShipBP = ({ starShip }) => {
       <Container maxWidth="sm" className="btn-holder">
         <Button
           variant="outlined"
-          color="black"
+          color="standard"
           className="more-btn"
           // startIcon={<DeleteIcon />}
         >
