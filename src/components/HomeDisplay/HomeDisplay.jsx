@@ -9,7 +9,7 @@ const HomeDisplay = ({ starShip }) => {
   return (
     <div>
       <Container className={classes.container}>
-        <Typography variant="h2" align="center">
+        <Typography variant="h3" align="center">
           Popular Starships
         </Typography>
         <div className="hd-underline"></div>
