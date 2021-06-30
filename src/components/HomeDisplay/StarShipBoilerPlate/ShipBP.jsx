@@ -16,7 +16,6 @@ const card = [1, 2, 3, 4, 5, 6];
 //styling can be found in parent component scss file i.e homeDisplay.scss
 
 const ShipBP = ({ starShip }) => {
-  // console.log({ starShip });
   const { count, next, results } = starShip;
   console.log(results[0].name);
   const classes = useStyles();
