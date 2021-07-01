@@ -3,19 +3,23 @@ import { useState } from "react";
 import { Typography, Card, CardMedia, CardContent } from "@material-ui/core";
 import "../../../scss/_cardPeople.scss";
 
-const CardPeople = ({ lorem, src, results, index, info }) => {
-  console.log(results[index].name);
+// lorem, src, results, index, info;
+
+const CardPeople = (props) => {
+  console.log(props.results[props.index].name);
   const [readMore, setReadMore] = useState(false);
   return (
     <Card className="people-card">
       <div className="person-details">
         <CardContent className="person-content">
-          <Typography className="person-name">{results[index].name}</Typography>
+          <Typography className="person-name">
+            {props.results[props.index].name}
+          </Typography>
           <Typography className="person-subinfo">
-            {results[index].gender}
+            {props.results[props.index].gender}
           </Typography>
           <Typography className="person-info">
-            {readMore ? info : `${info.substring(0, 100)}...`}
+            {readMore ? props.info : `${props.info.substring(0, 100)}...`}
             <button onClick={() => setReadMore(!readMore)}>
               {readMore ? "show less" : "  read more"}
             </button>
@@ -24,7 +28,7 @@ const CardPeople = ({ lorem, src, results, index, info }) => {
       </div>
       <CardMedia
         className="cover"
-        image={src}
+        image={props.src}
         title="Live from space album cover"
       />
     </Card>

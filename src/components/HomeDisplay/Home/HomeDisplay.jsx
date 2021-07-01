@@ -2,6 +2,7 @@ import React from "react";
 import ShipBP from "../StarShipBoilerPlate/ShipBP";
 import PlanetBP from "../PlanetBoilerPlate/PlanetBP";
 import PeopleBP from "../PeopleBoilerPlate/PeopleBP";
+import PeoplePaginator from "../../Paginator/PeoplePaginator";
 import { Container, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
@@ -42,6 +43,7 @@ const HomeDisplay = ({ starShip, people }) => {
         <div className="hd-underline"></div>
       </Container>
       <PeopleBP people={people} />
+      {/* <PeoplePaginator /> */}
     </div>
   );
 };
