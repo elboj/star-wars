@@ -7,6 +7,7 @@ import CardShip from "./CardShip";
 const card = [0, 1, 2, 3, 4, 5];
 
 const ShipBP = ({ starShip }) => {
+  // console.log(starShip);
   const { results } = starShip;
   return (
     <Container maxWidth="md" className="starship-container">

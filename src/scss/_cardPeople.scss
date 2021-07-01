@@ -3,8 +3,8 @@
 
 .people-card {
   @include flex-row;
-  border: 2px solid red;
-  height: 300px;
+  // border: 2px solid red;
+  height: 390px;
   // justify-content: $equal-spacing;
 }
 
@@ -35,8 +35,8 @@
 
 .person-info {
   padding: 2rem 0;
-  font-size: $small-font-size !important;
-  justify-content: center !important;
+  // font-size: $small-font-size !important;
+  text-align: justify !important;
 }
 
 .person-name {

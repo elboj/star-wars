@@ -5,7 +5,7 @@ import PeopleBP from "../PeopleBoilerPlate/PeopleBP";
 import { Container, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
-const HomeDisplay = ({ starShip }) => {
+const HomeDisplay = ({ starShip, people }) => {
   const classes = useStyles();
   return (
     <div>
@@ -41,7 +41,7 @@ const HomeDisplay = ({ starShip }) => {
         </Typography>
         <div className="hd-underline"></div>
       </Container>
-      <PeopleBP />
+      <PeopleBP people={people} />
     </div>
   );
 };

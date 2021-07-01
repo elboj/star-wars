@@ -10,7 +10,6 @@ import {
 import "../../../scss/_cardShip.scss";
 
 const CardShip = ({ ssImages, results, index }) => {
-  console.log(results[index].name);
   return (
     <Card className="card">
       <CardMedia image={ssImages[index].src} className="card-media" />

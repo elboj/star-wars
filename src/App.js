@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./styles.scss";
 import { HeroSection, HomeDisplay } from "./components/index";
-import { Container } from "@material-ui/core";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import axios from "axios";
@@ -15,8 +14,8 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    const peopleAPI = "https://swapi.dev/api/people";
-    const planetAPI = "https://swapi.dev/api/planets";
+    const peopleAPI = "https://swapi.dev/api/people/";
+    const planetAPI = "https://swapi.dev/api/planets/";
     const starShipAPI = "https://swapi.dev/api/starships/";
 
     const getPeople = axios.get(peopleAPI);
@@ -53,7 +52,7 @@ const App = () => {
   return (
     <main>
       <HeroSection />
-      <HomeDisplay starShip={starShip} />
+      <HomeDisplay starShip={starShip} people={people} />
     </main>
   );
 };

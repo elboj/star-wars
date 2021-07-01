@@ -7,12 +7,13 @@ import CardPeople from "./CardPeople";
 const lorem =
   " Lorem ipsum dolor sit amet consectetur adipisicing elit.Nesciunt, cum. Lorem ipsum dolor, sit amet consectetur adipisicing elit.";
 
-const PeopleBP = () => {
+const PeopleBP = ({ people }) => {
+  const { results } = people;
   return (
     <Container maxWidth="md" className="people-container">
       <Grid container spacing={3}>
         {peopleImage.map((person, index) => {
-          const { src } = person;
+          const { src, info } = person;
           return (
             <Grid
               item
@@ -22,7 +23,12 @@ const PeopleBP = () => {
               md={6}
               className="people-grid"
             >
-              <CardPeople lorem={lorem} src={src} />
+              <CardPeople
+                lorem={lorem}
+                {...person}
+                results={results}
+                index={index}
+              />
             </Grid>
           );
         })}
