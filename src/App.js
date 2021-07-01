@@ -44,7 +44,8 @@ const App = () => {
       <main>
         <HeroSection />
         <div className="fallback-container">
-          <Loader type="Circles" color="black" height={50} width={50} />
+          {/* <Loader type="Circles" color="black" height={50} width={50} /> */}
+          <h1>...Loading</h1>
         </div>
       </main>
     );

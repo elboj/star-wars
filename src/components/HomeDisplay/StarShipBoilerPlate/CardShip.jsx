@@ -5,23 +5,22 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  Grid,
-  Container,
   Button,
 } from "@material-ui/core";
 import "../../../scss/_cardShip.scss";
 
-const CardShip = ({ src, title }) => {
-  console.log(src);
+const CardShip = ({ ssImages, results, index }) => {
+  console.log(results[index].name);
   return (
     <Card className="card">
-      <CardMedia image={src} className="card-media" />
+      <CardMedia image={ssImages[index].src} className="card-media" />
       <CardContent>
         <Typography gutterBottom variant="h6">
-          {title}
+          {results[index].name}
         </Typography>
         <Typography>
-          This is a media card you can use this media to describe the content
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
+          natus.
         </Typography>
       </CardContent>
       <CardActions className="action">

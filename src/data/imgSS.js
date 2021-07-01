@@ -7,27 +7,27 @@ import picture6 from "../assets/starship-6.jpg";
 
 export const ssImages = [
   {
+    id: 1,
     src: picture,
-    title: "CR90 corvette",
   },
   {
+    id: 2,
     src: picture2,
-    title: "Star Destroyer",
   },
   {
+    id: 3,
     src: picture3,
-    title: "Sentinel-class landing craft",
   },
   {
+    id: 4,
     src: picture4,
-    title: "Death Star",
   },
   {
+    id: 5,
     src: picture5,
-    title: "Millennium Falcon",
   },
   {
+    id: 6,
     src: picture6,
-    title: "Y-Wing",
   },
 ];

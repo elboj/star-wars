@@ -6,7 +6,6 @@ import { Container, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
 const HomeDisplay = ({ starShip }) => {
-  console.log({ starShip });
   const classes = useStyles();
   return (
     <div>

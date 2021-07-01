@@ -4,20 +4,23 @@ import { ssImages } from "../../../data/imgSS";
 import "../../../scss/_shipBP.scss";
 import CardShip from "./CardShip";
 
-const ShipBP = () => {
+const card = [0, 1, 2, 3, 4, 5];
+
+const ShipBP = ({ starShip }) => {
+  const { results } = starShip;
   return (
     <Container maxWidth="md" className="starship-container">
       <Grid container spacing={4}>
-        {ssImages.map((image, index) => {
+        {card.map((card, index) => {
           return (
-            <Grid key={index} item xs={12} sm={6} md={4}>
-              <CardShip {...image} />
+            <Grid key={card} item xs={12} sm={6} md={4}>
+              <CardShip ssImages={ssImages} results={results} index={index} />
             </Grid>
           );
         })}
       </Grid>
       <Container maxWidth="sm" className="btn-holder">
-        <Button variant="outlined" color="standard" className="more-btn">
+        <Button variant="outlined" color="primary" className="more-btn">
           View more
         </Button>
       </Container>
