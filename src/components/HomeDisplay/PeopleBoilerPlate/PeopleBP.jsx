@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "../../../scss/_peopleBP.scss";
 import { peopleImage } from "../../../data/imgPeople";
 import { Grid, Container } from "@material-ui/core";
