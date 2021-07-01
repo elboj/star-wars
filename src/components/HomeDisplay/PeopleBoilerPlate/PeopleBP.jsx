@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "../../../scss/_peopleBP.scss";
 import { peopleImage } from "../../../data/imgPeople";
 import {
@@ -12,7 +13,11 @@ import {
   Button,
 } from "@material-ui/core";
 
+const lorem =
+  " Lorem ipsum dolor sit amet consectetur adipisicing elit.Nesciunt, cum. Lorem ipsum dolor, sit amet consectetur adipisicing elit.";
+
 const PeopleBP = () => {
+  const [readMore, setReadMore] = useState(false);
   return (
     <Container maxWidth="md" className="people-container">
       <Grid container spacing={3}>
@@ -37,9 +42,11 @@ const PeopleBP = () => {
                       Mac Miller
                     </Typography>
                     <Typography className="person-info">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nesciunt, cum. Lorem ipsum dolor, sit amet consectetur
-                      adipisicing elit.
+                      {/* {lorem} */}
+                      {readMore ? lorem : `${lorem.substring(0, 20)}...`}
+                      <button onClick={() => setReadMore(!readMore)}>
+                        {readMore ? "show less" : "  read more"}
+                      </button>
                     </Typography>
                   </CardContent>
                 </div>
