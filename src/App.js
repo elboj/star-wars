@@ -3,17 +3,16 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./styles.scss";
 import { HeroSection, HomeDisplay } from "./components/index";
+import { Container } from "@material-ui/core";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import axios from "axios";
 
 const App = () => {
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
-  const [show, setShow] = useState(false);
-
-  // const changeState = () => {
-  //   show ? setShow(false) : setShow(true);
-  // };
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
     const peopleAPI = "https://swapi.dev/api/people";
@@ -28,10 +27,10 @@ const App = () => {
         const allPeople = allData[0].data;
         const allPlanet = allData[1].data;
         const allStarShip = allData[2].data;
-
         setPeople(allPeople);
         setPlanet(allPlanet);
         setStarShip(allStarShip);
+        setIsLoading(false);
       })
     );
   };
@@ -40,14 +39,20 @@ const App = () => {
     fetchData();
   }, []);
 
+  if (isLoading) {
+    return (
+      <main>
+        <HeroSection />
+        <div className="fallback-container">
+          <Loader type="Circles" color="black" height={50} width={50} />
+        </div>
+      </main>
+    );
+  }
   return (
     <main>
       <HeroSection />
       <HomeDisplay starShip={starShip} />
-      {/* {show && <HomeDisplay starShip={starShip} />} */}
-      {/* <button type="button" onClick={changeState}> */}
-      {/* click me
-      </button> */}
     </main>
   );
 };
