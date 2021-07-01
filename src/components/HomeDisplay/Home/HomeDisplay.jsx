@@ -6,7 +6,7 @@ import { Container, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
 const HomeDisplay = ({ starShip }) => {
-  // console.log({ starShip });
+  console.log({ starShip });
   const classes = useStyles();
   return (
     <div>
@@ -32,6 +32,16 @@ const HomeDisplay = ({ starShip }) => {
         <div className="hd-underline"></div>
       </Container>
       <PlanetBP />
+      <Container className={classes.container}>
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.sectionHeading}
+        >
+          Popular People
+        </Typography>
+        <div className="hd-underline"></div>
+      </Container>
       <PeopleBP />
     </div>
   );

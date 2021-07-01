@@ -19,7 +19,7 @@ const ShipBP = ({ starShip }) => {
   const { count, next, results } = starShip;
   const classes = useStyles();
   return (
-    <Container maxWidth="md" className="container">
+    <Container maxWidth="md" className="starship-container">
       <Grid container spacing={4}>
         {card.map((card, index) => {
           return (

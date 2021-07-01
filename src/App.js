@@ -9,6 +9,11 @@ const App = () => {
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
+  const [show, setShow] = useState(false);
+
+  // const changeState = () => {
+  //   show ? setShow(false) : setShow(true);
+  // };
 
   const fetchData = async () => {
     const peopleAPI = "https://swapi.dev/api/people";
@@ -39,6 +44,10 @@ const App = () => {
     <main>
       <HeroSection />
       <HomeDisplay starShip={starShip} />
+      {/* {show && <HomeDisplay starShip={starShip} />} */}
+      {/* <button type="button" onClick={changeState}> */}
+      {/* click me
+      </button> */}
     </main>
   );
 };
