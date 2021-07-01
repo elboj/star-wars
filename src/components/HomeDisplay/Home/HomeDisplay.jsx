@@ -10,7 +10,7 @@ const HomeDisplay = ({ starShip, people }) => {
   const classes = useStyles();
   return (
     <div>
-      <Container className={classes.container}>
+      {/* <Container className={classes.container}>
         <Typography
           variant="h3"
           align="center"
@@ -41,9 +41,9 @@ const HomeDisplay = ({ starShip, people }) => {
           Popular People
         </Typography>
         <div className="hd-underline"></div>
-      </Container>
-      <PeopleBP people={people} />
-      {/* <PeoplePaginator /> */}
+      </Container> */}
+      {/* <PeopleBP people={people} /> */}
+      <PeoplePaginator people={people} />
     </div>
   );
 };
