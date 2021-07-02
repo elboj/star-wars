@@ -61,6 +61,14 @@ const App = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
 
+  const totalPages = Math.ceil(people.length / postsPerPage);
+  console.log(totalPages);
+
+  const handleChange = (event, value) => {
+    setCurrentPage(value);
+    console.log(value);
+  };
+
   if (isLoading) {
     return (
       <main>
@@ -75,7 +83,12 @@ const App = () => {
     <main>
       <HeroSection isLoading={isLoading} />
       <HomeDisplay starShip={starShip} people={people} />
-      <PeoplePaginator people={currentPosts} />
+      <PeoplePaginator
+        people={currentPosts}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        handleChange={handleChange}
+      />
     </main>
   );
 };

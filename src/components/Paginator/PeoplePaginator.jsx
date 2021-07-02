@@ -2,8 +2,9 @@ import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import People from "../HomeDisplay/People/People";
+import { Pagination } from "@material-ui/lab";
 
-function PeoplePaginator({ people }) {
+function PeoplePaginator({ people, totalPages, currentPage, handleChange }) {
   return (
     <div>
       <Heading name="Popular People" />
@@ -18,6 +19,14 @@ function PeoplePaginator({ people }) {
             );
           })}
         </Grid>
+        {/* <Pagination count={10} page={page} onChange={handleChange} /> */}
+        <Pagination
+          count={totalPages}
+          variant="outlined"
+          shape="rounded"
+          page={currentPage}
+          onChange={handleChange}
+        />
       </Container>
     </div>
   );
