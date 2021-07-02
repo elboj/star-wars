@@ -1,33 +1,45 @@
 import React from "react";
 import useStyles from "./styles";
 import StarShips from "../Starships/StarShips";
-import {
-  Container,
-  Typography,
-  Card,
-  CardMedia,
-  Grid,
-  CardContent,
-  CardActions,
-  CardActionArea,
-  Button,
-} from "@material-ui/core";
+import PlanetBP from "../PlanetBoilerPlate/PlanetBP";
+import People from "../People/People";
+import { Container, Typography, Grid } from "@material-ui/core";
+import Heading from "../../Heading/Heading";
 
-const HomeDisplay = ({ starShip }) => {
+const HomeDisplay = ({ starShip, people }) => {
+  const classes = useStyles();
   const shipHomeDisplay = starShip.slice(0, 6);
-  console.log(shipHomeDisplay);
+  const peopleHomeDisplay = people.slice(0, 4);
+  console.log(peopleHomeDisplay);
   return (
-    <Container maxWidth="md" className="starship-container">
-      <Grid container spacing={4}>
-        {shipHomeDisplay.map((ship) => {
-          return (
-            <Grid item xs={12} sm={6} md={4}>
-              <StarShips {...ship} />
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Container>
+    <div>
+      <Heading name="Popular Starships" />
+      <Container maxWidth="md" className="starship-container">
+        <Grid container spacing={4}>
+          {shipHomeDisplay.map((ship, index) => {
+            return (
+              <Grid key={index} item xs={12} sm={6} md={4}>
+                <StarShips {...ship} index={index} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
+      <Heading name="Popular Planets" />
+      <PlanetBP />
+      <Heading name="Popular People" />
+      <Container maxWidth="md" className="starship-container">
+        <Grid container spacing={4}>
+          {peopleHomeDisplay.map((people, index) => {
+            return (
+              <Grid key={index} item xs={12} sm={6} md={6}>
+                <People {...people} index={index} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
+    </div>
   );
 };
 

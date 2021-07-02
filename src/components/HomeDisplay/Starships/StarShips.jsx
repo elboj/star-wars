@@ -15,7 +15,7 @@ import "../../../scss/_shipBP.scss";
 import "../../../scss/_cardShip.scss";
 import useStyles from "./styles";
 
-function StarShips({ name }) {
+function StarShips({ name, index }) {
   console.log(name);
   const classes = useStyles();
   return (
@@ -24,7 +24,7 @@ function StarShips({ name }) {
         <CardActionArea>
           <CardMedia
             className="ship-media"
-            image={ssImages[0].src}
+            image={ssImages[index].src}
             title="Contemplative Reptile"
           />
           <CardContent>

@@ -64,8 +64,7 @@ const App = () => {
   return (
     <main>
       <HeroSection />
-      <HomeDisplay starShip={starShip} />
-      {/* <StarShips starShip={starShip} /> */}
+      <HomeDisplay starShip={starShip} people={people} />
       {/* <PlanetBP /> */}
     </main>
   );
