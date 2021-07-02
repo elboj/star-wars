@@ -16,7 +16,6 @@ import "../../../scss/_cardShip.scss";
 import useStyles from "./styles";
 
 function StarShips({ name, index }) {
-  console.log(name);
   const classes = useStyles();
   return (
     <div>

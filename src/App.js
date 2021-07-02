@@ -6,6 +6,7 @@ import { HeroSection, HomeDisplay } from "./components/index";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import StarShips from "./components/HomeDisplay/Starships/StarShips";
 import PlanetBP from "./components/HomeDisplay/PlanetBoilerPlate/PlanetBP";
+import PeoplePaginator from "./components/Paginator/PeoplePaginator";
 
 //DATA FETCH
 
@@ -14,6 +15,10 @@ const App = () => {
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  //PAGINATION STATES
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
 
   const allDataFetch = () => {
     const peopleRequest = [];
@@ -51,6 +56,11 @@ const App = () => {
     allDataFetch();
   }, []);
 
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
+
   if (isLoading) {
     return (
       <main>
@@ -63,9 +73,9 @@ const App = () => {
   }
   return (
     <main>
-      <HeroSection />
+      <HeroSection isLoading={isLoading} />
       <HomeDisplay starShip={starShip} people={people} />
-      {/* <PlanetBP /> */}
+      <PeoplePaginator people={currentPosts} />
     </main>
   );
 };

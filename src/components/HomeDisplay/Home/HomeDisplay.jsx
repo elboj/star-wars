@@ -3,14 +3,13 @@ import useStyles from "./styles";
 import StarShips from "../Starships/StarShips";
 import PlanetBP from "../PlanetBoilerPlate/PlanetBP";
 import People from "../People/People";
-import { Container, Typography, Grid } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import Heading from "../../Heading/Heading";
 
 const HomeDisplay = ({ starShip, people }) => {
   const classes = useStyles();
   const shipHomeDisplay = starShip.slice(0, 6);
   const peopleHomeDisplay = people.slice(0, 4);
-  console.log(peopleHomeDisplay);
   return (
     <div>
       <Heading name="Popular Starships" />
@@ -31,9 +30,10 @@ const HomeDisplay = ({ starShip, people }) => {
       <Container maxWidth="md" className="starship-container">
         <Grid container spacing={4}>
           {peopleHomeDisplay.map((people, index) => {
+            const { name, gender } = people;
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <People {...people} index={index} />
+                <People name={name} gender={gender} index={index} />
               </Grid>
             );
           })}

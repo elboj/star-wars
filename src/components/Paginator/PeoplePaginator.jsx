@@ -1,33 +1,26 @@
 import React from "react";
-import { useState } from "react";
-import PeoplePagCard from "./PeoplePagCard";
-import { Grid, Container } from "@material-ui/core";
-import Pagination from "@material-ui/lab/Pagination";
-import "../../scss/_cardPeople.scss";
+import { Container, Grid } from "@material-ui/core";
+import Heading from "../Heading/Heading";
+import People from "../HomeDisplay/People/People";
 
-const PeoplePaginator = ({ people }) => {
-  const { results, count, next } = people;
-  console.log(people);
+function PeoplePaginator({ people }) {
   return (
-    <Container maxWidth="md" className="people-container">
-      <Grid container spacing={3}>
-        {results.map((result, index) => {
-          return (
-            <Grid
-              item
-              key={index}
-              xs={12}
-              sm={6}
-              md={6}
-              className="people-grid"
-            >
-              <PeoplePagCard {...result} />
-            </Grid>
-          );
-        })}
-      </Grid>
-    </Container>
+    <div>
+      <Heading name="Popular People" />
+      <Container maxWidth="md" className="starship-container">
+        <Grid container spacing={4}>
+          {people.map((person, index) => {
+            const { name, gender } = person;
+            return (
+              <Grid key={index} item xs={12} sm={6} md={6}>
+                <People name={name} gender={gender} index={index} />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
+    </div>
   );
-};
+}
 
 export default PeoplePaginator;
