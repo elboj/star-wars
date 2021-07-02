@@ -6,7 +6,7 @@
   height: 100%;
 
   .card-media {
-    height: 0;
+    height: 100px;
     padding-top: 80.25%; // 16:9, 56.25
     margin-top: 30;
   }
@@ -19,4 +19,14 @@
     //   background-color: black;
     // }
   }
+}
+
+.root {
+  max-width: 345;
+}
+
+.ship-media {
+  height: 100px;
+  padding-top: 80.25%; // 16:9, 56.25
+  margin-top: 30;
 }

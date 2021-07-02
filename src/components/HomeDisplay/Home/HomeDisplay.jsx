@@ -1,26 +1,31 @@
 import React from "react";
-// import ShipBP from "../StarShipBoilerPlate/ShipBP";
-import PlanetBP from "../PlanetBoilerPlate/PlanetBP";
-// import PeopleBP from "../PeopleBoilerPlate/PeopleBP";
-import PeoplePaginator from "../../Paginator/PeoplePaginator";
-import { Container, Typography } from "@material-ui/core";
 import useStyles from "./styles";
+import StarShips from "../Starships/StarShips";
+import {
+  Container,
+  Typography,
+  Card,
+  CardMedia,
+  Grid,
+  CardContent,
+  CardActions,
+  CardActionArea,
+  Button,
+} from "@material-ui/core";
 
-const HomeDisplay = () => {
-  const classes = useStyles();
+const HomeDisplay = ({ starShip }) => {
+  const shipHomeDisplay = starShip.slice(0, 6);
+  console.log(shipHomeDisplay);
   return (
-    <div>
-      <Container className={classes.container}>
-        <Typography
-          variant="h3"
-          align="center"
-          className={classes.sectionHeading}
-        >
-          Popular Starships
-        </Typography>
-        <div className="hd-underline"></div>
-      </Container>
-    </div>
+    <Container maxWidth="md" className="starship-container">
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={6} md={4}>
+          {shipHomeDisplay.map((ship) => {
+            return <StarShips {...ship} />;
+          })}
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

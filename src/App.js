@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import "./styles.scss";
 import { HeroSection, HomeDisplay } from "./components/index";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
-import axios from "axios";
+import StarShips from "./components/HomeDisplay/Starships/StarShips";
+import PlanetBP from "./components/HomeDisplay/PlanetBoilerPlate/PlanetBP";
 
 //DATA FETCH
 
@@ -39,7 +39,7 @@ const App = () => {
       .then((data) => {
         const totalList = [];
         data.forEach((d) => totalList.push(...d.results));
-        console.log(totalList);
+        // console.log(totalList);
         setPlanet(totalList.slice(0, 39));
         setStarShip(totalList.slice(39, 75));
         setPeople(totalList.slice(75));
@@ -56,7 +56,6 @@ const App = () => {
       <main>
         <HeroSection />
         <div className="fallback-container">
-          {/* <Loader type="Circles" color="black" height={50} width={50} /> */}
           <h1>...Loading</h1>
         </div>
       </main>
@@ -65,8 +64,9 @@ const App = () => {
   return (
     <main>
       <HeroSection />
-      {/* <HomeDisplay starShip={starShip} people={people} /> */}
-      <HomeDisplay />
+      <HomeDisplay starShip={starShip} />
+      {/* <StarShips starShip={starShip} /> */}
+      {/* <PlanetBP /> */}
     </main>
   );
 };
