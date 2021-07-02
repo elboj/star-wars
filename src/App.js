@@ -41,8 +41,8 @@ const App = () => {
         data.forEach((d) => totalList.push(...d.results));
         // console.log(totalList);
         setPlanet(totalList.slice(0, 39));
-        setStarShip(totalList.slice(39, 75));
-        setPeople(totalList.slice(75));
+        setStarShip(totalList.slice(40, 75));
+        setPeople(totalList.slice(76));
         setIsLoading(false);
       });
   };

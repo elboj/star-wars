@@ -18,7 +18,9 @@ function People({ name, gender, index }) {
           <Typography className="person-subinfo">{gender}</Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            species, ranging across all continents except Antarctica Lizards are
+            a widespread group of squamate reptiles, with over 6,000 species,
+            ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </div>
