@@ -7,6 +7,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import axios from "axios";
 
+//DATA FETCH
+
 const App = () => {
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
@@ -23,9 +25,9 @@ const App = () => {
     const getStarShip = axios.get(starShipAPI);
     axios.all([getPeople, getPlanet, getStarShip]).then(
       axios.spread((...allData) => {
-        const allPeople = allData[0].data;
-        const allPlanet = allData[1].data;
-        const allStarShip = allData[2].data;
+        const allPeople = allData[0].data.results;
+        const allPlanet = allData[1].data.results;
+        const allStarShip = allData[2].data.results;
         setPeople(allPeople);
         setPlanet(allPlanet);
         setStarShip(allStarShip);
@@ -52,7 +54,8 @@ const App = () => {
   return (
     <main>
       <HeroSection />
-      <HomeDisplay starShip={starShip} people={people} />
+      {/* <HomeDisplay starShip={starShip} people={people} /> */}
+      <HomeDisplay />
     </main>
   );
 };
