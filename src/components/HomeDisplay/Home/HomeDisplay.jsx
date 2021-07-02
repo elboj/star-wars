@@ -19,11 +19,13 @@ const HomeDisplay = ({ starShip }) => {
   return (
     <Container maxWidth="md" className="starship-container">
       <Grid container spacing={4}>
-        <Grid item xs={12} sm={6} md={4}>
-          {shipHomeDisplay.map((ship) => {
-            return <StarShips {...ship} />;
-          })}
-        </Grid>
+        {shipHomeDisplay.map((ship) => {
+          return (
+            <Grid item xs={12} sm={6} md={4}>
+              <StarShips {...ship} />
+            </Grid>
+          );
+        })}
       </Grid>
     </Container>
   );
