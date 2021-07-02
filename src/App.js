@@ -15,29 +15,40 @@ const App = () => {
   const [starShip, setStarShip] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
-    const peopleAPI = "https://swapi.dev/api/people/";
-    const planetAPI = "https://swapi.dev/api/planets/";
-    const starShipAPI = "https://swapi.dev/api/starships/";
+  const allDataFetch = () => {
+    const peopleRequest = [];
+    const shipRequest = [];
+    const planetRequest = [];
 
-    const getPeople = axios.get(peopleAPI);
-    const getPlanet = axios.get(planetAPI);
-    const getStarShip = axios.get(starShipAPI);
-    axios.all([getPeople, getPlanet, getStarShip]).then(
-      axios.spread((...allData) => {
-        const allPeople = allData[0].data.results;
-        const allPlanet = allData[1].data.results;
-        const allStarShip = allData[2].data.results;
-        setPeople(allPeople);
-        setPlanet(allPlanet);
-        setStarShip(allStarShip);
+    for (let i = 1; i <= 9; i++) {
+      peopleRequest.push(fetch("https://swapi.dev/api/people/?page=" + i));
+    }
+
+    for (let i = 1; i <= 4; i++) {
+      planetRequest.push(fetch("https://swapi.dev/api/planets/?page=" + i));
+    }
+
+    for (let i = 1; i <= 4; i++) {
+      shipRequest.push(fetch("https://swapi.dev/api/starships/?page=" + i));
+    }
+
+    const allResult = [...planetRequest, ...shipRequest, ...peopleRequest];
+
+    Promise.all(allResult)
+      .then((res) => Promise.all(res.map((r) => r.json())))
+      .then((data) => {
+        const totalList = [];
+        data.forEach((d) => totalList.push(...d.results));
+        console.log(totalList);
+        setPlanet(totalList.slice(0, 39));
+        setStarShip(totalList.slice(39, 75));
+        setPeople(totalList.slice(75));
         setIsLoading(false);
-      })
-    );
+      });
   };
 
   useEffect(() => {
-    fetchData();
+    allDataFetch();
   }, []);
 
   if (isLoading) {
