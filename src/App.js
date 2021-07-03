@@ -20,11 +20,6 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
 
-  const handleSearch = (e) => {
-    // e.preventDefault();
-    console.log("working");
-  };
-
   //DATA FETCH
   const allDataFetch = () => {
     const peopleRequest = [];
@@ -69,8 +64,17 @@ const App = () => {
   // const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
   // const totalPages = Math.ceil(people.length / postsPerPage);
 
-  const handleChange = (event, value) => {
-    setCurrentPage(value);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (search === "people") {
+      setFiltered(allData.filter((data) => data.gender));
+    }
+    if (search === "planets") {
+      setFiltered(allData.filter((data) => data.climate));
+    }
+    if (search === "ships") {
+      setFiltered(allData.filter((data) => data.model));
+    }
   };
 
   if (isLoading) {
@@ -85,7 +89,7 @@ const App = () => {
   }
   return (
     <main>
-      <form>
+      <form onSubmit={handleSearch}>
         <input
           type="text"
           className="test-input"
@@ -114,7 +118,7 @@ const App = () => {
       </form>
       <HeroSection people={people} planet={planet} starShip={starShip} />
       <HomeDisplay starShip={starShip} people={people} />
-      <PeoplePaginator handleChange={handleChange} filtered={filtered} />
+      <PeoplePaginator filtered={filtered} />
     </main>
   );
 };

@@ -23,7 +23,7 @@ function StarShips({ name, index }) {
         <CardActionArea>
           <CardMedia
             className="ship-media"
-            image={ssImages[index].src}
+            image={ssImages[2].src}
             title="Contemplative Reptile"
           />
           <CardContent>
