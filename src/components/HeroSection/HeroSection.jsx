@@ -9,14 +9,15 @@ import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
 import useStyles from "./Herostyles";
 
-const HeroSection = ({ isLoading }) => {
+const HeroSection = ({ people, planet, starShip, handleSearch }) => {
   const classes = useStyles();
   const [query, setQuery] = useState("");
   const [clear, setClear] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(query);
+    // console.log(e.target.test.value);
+    handleSearch(e.target.myInput.value);
     setQuery("");
   };
 
@@ -57,6 +58,7 @@ const HeroSection = ({ isLoading }) => {
             </button>
             <input
               type="text"
+              name="myInput"
               className="mhi-field"
               value={query}
               onChange={(e) => {

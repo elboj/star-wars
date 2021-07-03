@@ -4,7 +4,14 @@ import Heading from "../Heading/Heading";
 import People from "../HomeDisplay/People/People";
 import { Pagination } from "@material-ui/lab";
 
-function PeoplePaginator({ people, totalPages, currentPage, handleChange }) {
+function PeoplePaginator({
+  people,
+  totalPages,
+  currentPage,
+  handleChange,
+  filtered,
+}) {
+  // console.log(filtered);
   return (
     <div>
       <Heading name="Popular People" />

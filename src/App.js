@@ -8,18 +8,37 @@ import StarShips from "./components/HomeDisplay/Starships/StarShips";
 import PlanetBP from "./components/HomeDisplay/PlanetBoilerPlate/PlanetBP";
 import PeoplePaginator from "./components/Paginator/PeoplePaginator";
 
-//DATA FETCH
-
 const App = () => {
+  //USE STATES
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
+  const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   //PAGINATION STATES
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPagePerPost] = useState(10);
+  const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState([]);
+
+  // setFiltered(
+  //   allData.filter((data) => {
+  //     search === "people" ? data.gender : null;
+  //   })
+  // );
+
+  // useEffect(() => {
+  //   setFiltered(allData.filter((data) => data.gender));
+  // }, [search]);
+
+  const handleSearch = (e) => {
+    // e.preventDefault();
+    console.log("working");
+  };
+
+  //DATA FETCH
   const allDataFetch = () => {
     const peopleRequest = [];
     const shipRequest = [];
@@ -45,6 +64,7 @@ const App = () => {
         const totalList = [];
         data.forEach((d) => totalList.push(...d.results));
         // console.log(totalList);
+        setAllData(totalList);
         setPlanet(totalList.slice(0, 39));
         setStarShip(totalList.slice(40, 75));
         setPeople(totalList.slice(76));
@@ -60,13 +80,10 @@ const App = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
-
   const totalPages = Math.ceil(people.length / postsPerPage);
-  console.log(totalPages);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
-    console.log(value);
   };
 
   if (isLoading) {
@@ -81,14 +98,33 @@ const App = () => {
   }
   return (
     <main>
-      <HeroSection isLoading={isLoading} />
+      <form>
+        <input
+          type="text"
+          className="test-input"
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => {
+            setFiltered(allData.filter((data) => data.gender));
+          }}
+        >
+          click me
+        </button>
+      </form>
+      <HeroSection people={people} planet={planet} starShip={starShip} />
       <HomeDisplay starShip={starShip} people={people} />
-      <PeoplePaginator
+      {/* <PeoplePaginator
         people={currentPosts}
         totalPages={totalPages}
         currentPage={currentPage}
         handleChange={handleChange}
-      />
+        filtered={filtered}
+      /> */}
     </main>
   );
 };
