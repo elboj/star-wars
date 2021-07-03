@@ -2,10 +2,30 @@ import React from "react";
 import PeoplePaginator from "./PeoplePaginator";
 import ShipPaginator from "./ShipPaginator";
 
-const Posts = ({ people, starShip, search, setHide, setPG, setPHide }) => {
+const Posts = ({
+  people,
+  starShip,
+  search,
+  setHide,
+  setPG,
+  setPHide,
+  searchResult,
+}) => {
+  console.log(searchResult);
   return (
     <div>
-      <h1>Here are the search results</h1>;
+      {searchResult.map((result, index) => {
+        const { name, gender, model, birth_year } = result;
+        return (
+          <div key={index}>
+            <h1>Here are the search results</h1>
+            <p>{name}</p>
+            <p>{model}</p>
+            <p>{gender}</p>
+            <p>{birth_year}</p>
+          </div>
+        );
+      })}
       <button
         type="button"
         onClick={() => {

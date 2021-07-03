@@ -11,12 +11,12 @@ import useStyles from "./Herostyles";
 import { Link, withRouter } from "react-router-dom";
 
 const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
-  console.log(
-    // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
-    allData.filter(
-      (data) => data.hasOwnProperty("name") && data.name == "Tatooine"
-    )
-  );
+  // console.log(
+  //   // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
+  //   allData.filter(
+  //     (data) => data.hasOwnProperty("name") && data.name == "Tatooine"
+  //   )
+  // );
   const classes = useStyles();
   const [query, setQuery] = useState("");
   const [clear, setClear] = useState(false);
@@ -83,7 +83,7 @@ const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
           <p className="mhc-body">Starships and Planets</p>
         </article>
         <div className="main-hero-input">
-          <form className="mhi-form" onSubmit={handleSubmit}>
+          {/* <form className="mhi-form" onSubmit={handleSubmit}>
             <button className="mhi-button">
               <GoSearch size="1.2rem" />
             </button>
@@ -106,7 +106,7 @@ const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
                 />
               )}
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </section>

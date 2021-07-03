@@ -21,7 +21,7 @@ const App = () => {
   const [hide, setHide] = useState(true);
   const [pg, setPG] = useState(false);
   const [pHide, setPHide] = useState(true);
-  // const [sHide, setSHide] = useState(true);
+  const [searchResult, setSearchResult] = useState([]);
 
   //PAGINATION STATES
   const [search, setSearch] = useState("");
@@ -66,6 +66,19 @@ const App = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setSearchResult(
+      allData.filter(
+        (data) =>
+          data.hasOwnProperty("name") &&
+          data.name.toLowerCase() == search.toLowerCase()
+      )
+    );
+    console.log(
+      allData.filter(
+        (data) =>
+          data.hasOwnProperty("name") && data.name.toLowerCase() == search
+      )
+    );
     setHide(false);
     setPHide(false);
     setPG(true);
@@ -121,7 +134,14 @@ const App = () => {
           />
         </Switch>
       </Router>
-      {pg && <Posts setHide={setHide} setPG={setPG} setPHide={setPHide} />}
+      {pg && (
+        <Posts
+          setHide={setHide}
+          setPG={setPG}
+          setPHide={setPHide}
+          searchResult={searchResult}
+        />
+      )}
     </main>
   );
 };
