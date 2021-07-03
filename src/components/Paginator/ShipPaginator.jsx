@@ -20,7 +20,7 @@ function ShipPaginator({ starShip }) {
   };
   return (
     <div>
-      <Heading name="Popular People" />
+      <Heading name="Popular Starships" />
       <Container maxWidth="md" className="starship-container">
         <Grid container spacing={4}>
           {currentPosts.map((ship, index) => {
@@ -32,7 +32,6 @@ function ShipPaginator({ starShip }) {
             );
           })}
         </Grid>
-        {/* <Pagination count={10} page={page} onChange={handleChange} /> */}
         <Pagination
           count={totalPages}
           variant="outlined"

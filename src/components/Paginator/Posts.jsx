@@ -32,6 +32,14 @@ const Posts = ({
                 </Grid>
               );
             }
+            if (result.hasOwnProperty("climate")) {
+              const { name, climate, index } = result;
+              return (
+                <Grid item key={index} xs={12} sm={6} md={6}>
+                  {/* <People name={name} index={index} />; */}
+                </Grid>
+              );
+            }
           })}
         </Grid>
       </Container>

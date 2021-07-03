@@ -27,22 +27,11 @@ function PeoplePaginator({ people }) {
       <Container maxWidth="md" className="starship-container">
         <Grid container spacing={4}>
           {currentPosts.map((person, index) => {
-            console.log(person.hasOwnProperty("gender"));
-            if (person.hasOwnProperty("gender")) {
-              const { name, gender } = person;
-              return (
-                <Grid key={index} item xs={12} sm={6} md={6}>
-                  <People name={name} gender={gender} index={index} />
-                </Grid>
-              );
-            } else if (person.hasOwnProperty("model")) {
-              const { name, model } = person;
-              return (
-                <Grid key={index} item xs={12} sm={6} md={6}>
-                  <StarShips name={name} model={model} index={index} />
-                </Grid>
-              );
-            }
+            return (
+              <Grid key={index} item xs={12} sm={6} md={6}>
+                <People {...person} />
+              </Grid>
+            );
           })}
         </Grid>
         <Pagination
