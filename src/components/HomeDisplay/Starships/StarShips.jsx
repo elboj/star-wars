@@ -15,7 +15,7 @@ import "../../../scss/_shipBP.scss";
 import "../../../scss/_cardShip.scss";
 import useStyles from "./styles";
 
-function StarShips({ name, index }) {
+function StarShips({ name, model, cargo_capacity, index }) {
   const classes = useStyles();
   return (
     <div>
@@ -27,9 +27,11 @@ function StarShips({ name, index }) {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="p">
               {name}
             </Typography>
+            <p>{model}</p>
+            <p>{cargo_capacity}</p>
             <Typography variant="body2" color="textSecondary" component="p">
               Lizards are a widespread group of squamate reptiles, with over
               6,000 species, ranging across all continents except Antarctica
