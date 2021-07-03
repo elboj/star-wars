@@ -1,16 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import People from "../HomeDisplay/People/People";
 import { Pagination } from "@material-ui/lab";
 
-function PeoplePaginator({
-  currentPage,
-  handleChange,
-  filtered,
-  postsPerPage,
-}) {
+function PeoplePaginator({ handleChange, filtered }) {
   console.log(filtered);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPagePerPost] = useState(10);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;

@@ -17,9 +17,6 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   //PAGINATION STATES
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPagePerPost] = useState(10);
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
 
@@ -99,8 +96,17 @@ const App = () => {
         />
         <button
           type="button"
-          onClick={() => {
-            setFiltered(allData.filter((data) => data.gender));
+          onClick={(e) => {
+            e.preventDefault();
+            if (search === "people") {
+              setFiltered(allData.filter((data) => data.gender));
+            }
+            if (search === "planets") {
+              setFiltered(allData.filter((data) => data.climate));
+            }
+            if (search === "ships") {
+              setFiltered(allData.filter((data) => data.model));
+            }
           }}
         >
           click me
@@ -108,12 +114,7 @@ const App = () => {
       </form>
       <HeroSection people={people} planet={planet} starShip={starShip} />
       <HomeDisplay starShip={starShip} people={people} />
-      <PeoplePaginator
-        currentPage={currentPage}
-        handleChange={handleChange}
-        filtered={filtered}
-        postsPerPage={postsPerPage}
-      />
+      <PeoplePaginator handleChange={handleChange} filtered={filtered} />
     </main>
   );
 };
