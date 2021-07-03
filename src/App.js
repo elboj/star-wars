@@ -7,6 +7,7 @@ import {
   HomeDisplay,
   ShipPaginator,
   PeoplePaginator,
+  PlanetPaginator,
 } from "./components/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./components/Paginator/Posts";
@@ -131,6 +132,11 @@ const App = () => {
             path="/ships"
             exact
             component={() => pHide && <ShipPaginator starShip={starShip} />}
+          />
+          <Route
+            path="/planets"
+            exact
+            component={() => pHide && <PlanetPaginator planet={planet} />}
           />
         </Switch>
       </Router>

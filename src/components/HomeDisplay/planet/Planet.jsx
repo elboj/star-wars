@@ -2,29 +2,33 @@ import React from "react";
 import { items } from "../../../data/imgPlanet";
 import "../../../scss/_planetBP.scss";
 import useStyles from "./styles";
+import "../../../scss/_planet.scss";
 import {
   Card,
   CardMedia,
+  CardContent,
   Typography,
   Grid,
   Container,
 } from "@material-ui/core";
 
-function Planet() {
+function Planet(props) {
+  console.log(props);
   const classes = useStyles();
   return (
+    // <h1>Planet Pagination</h1>
     <Container maxWidth="md">
       <Grid container spacing={2} className="BannerGrid">
         <Grid item key="content" item xs={12} sm={4} md={4}>
-          <Card>
-            <CardMedia
-              className={`Media ${classes.media}`}
-              image={items[0].src}
-            >
-              <Typography className={`MediaCaption ${classes.mediaCaption}`}>
+          <Card className="root">
+            <CardMedia className="planet-media" image={items[0].Image} />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="p">
                 {props.name}
               </Typography>
-            </CardMedia>
+              <p>{props.climate}</p>
+              <p>{props.population}</p>
+            </CardContent>
           </Card>
         </Grid>
       </Grid>

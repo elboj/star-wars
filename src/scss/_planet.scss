@@ -1,0 +1,29 @@
+@import "./mixin";
+@import "./global";
+
+.card {
+  @include flex-column;
+  height: 100%;
+
+  .action {
+    @include flex-row;
+    justify-content: $right;
+
+    // .button {
+    //   background-color: black;
+    // }
+  }
+}
+
+.root {
+  // max-width: 345;
+  width: 300px;
+  border: 2px solid red;
+}
+
+.planet-media {
+  height: 300px;
+  padding-top: 56.25%; // 16:9, 56.25
+  margin-top: 30;
+  border: 2px solid green;
+}

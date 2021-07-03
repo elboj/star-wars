@@ -1,6 +1,7 @@
 import React from "react";
 import People from "../HomeDisplay/People/People";
 import StarShips from "../HomeDisplay/Starships/StarShips";
+import Planet from "../HomeDisplay/Planet/Planet";
 import { Container, Grid } from "@material-ui/core";
 const Posts = ({
   people,
@@ -36,7 +37,7 @@ const Posts = ({
               const { name, climate, index } = result;
               return (
                 <Grid item key={index} xs={12} sm={6} md={6}>
-                  {/* <People name={name} index={index} />; */}
+                  <Planet name={name} index={index} />;
                 </Grid>
               );
             }

@@ -67,6 +67,9 @@ const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
             <Link to="/ships">
               <Typography variant="subtitle2">Ships</Typography>
             </Link>
+            <Link to="/planets">
+              <Typography variant="subtitle2">Planets</Typography>
+            </Link>
           </Toolbar>
         </AppBar>
       </div>
