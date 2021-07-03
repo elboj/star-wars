@@ -30,10 +30,15 @@ const HomeDisplay = ({ starShip, people }) => {
       <Container maxWidth="md" className="starship-container">
         <Grid container spacing={4}>
           {peopleHomeDisplay.map((people, index) => {
-            const { name, gender } = people;
+            const { name, gender, birth_year } = people;
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <People name={name} gender={gender} index={index} />
+                <People
+                  name={name}
+                  gender={gender}
+                  birth_year={birth_year}
+                  index={index}
+                />
               </Grid>
             );
           })}
