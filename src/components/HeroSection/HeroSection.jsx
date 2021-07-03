@@ -16,8 +16,6 @@ const HeroSection = ({ people, planet, starShip, handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target.test.value);
-    handleSearch(e.target.myInput.value);
     setQuery("");
   };
 

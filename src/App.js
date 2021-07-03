@@ -23,16 +23,6 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
 
-  // setFiltered(
-  //   allData.filter((data) => {
-  //     search === "people" ? data.gender : null;
-  //   })
-  // );
-
-  // useEffect(() => {
-  //   setFiltered(allData.filter((data) => data.gender));
-  // }, [search]);
-
   const handleSearch = (e) => {
     // e.preventDefault();
     console.log("working");
@@ -77,10 +67,10 @@ const App = () => {
   }, []);
 
   // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(people.length / postsPerPage);
+  // const indexOfLastPost = currentPage * postsPerPage;
+  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  // const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
+  // const totalPages = Math.ceil(people.length / postsPerPage);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -118,13 +108,12 @@ const App = () => {
       </form>
       <HeroSection people={people} planet={planet} starShip={starShip} />
       <HomeDisplay starShip={starShip} people={people} />
-      {/* <PeoplePaginator
-        people={currentPosts}
-        totalPages={totalPages}
+      <PeoplePaginator
         currentPage={currentPage}
         handleChange={handleChange}
         filtered={filtered}
-      /> */}
+        postsPerPage={postsPerPage}
+      />
     </main>
   );
 };
