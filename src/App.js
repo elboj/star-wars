@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import "./styles.scss";
 import { HeroSection, HomeDisplay } from "./components/index";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import StarShips from "./components/HomeDisplay/Starships/StarShips";
-import PlanetBP from "./components/HomeDisplay/PlanetBoilerPlate/PlanetBP";
 import PeoplePaginator from "./components/Paginator/PeoplePaginator";
+import ShipPaginator from "./components/Paginator/ShipPaginator";
+import Posts from "./components/Paginator/Posts";
 
 const App = () => {
   //USE STATES
@@ -15,6 +15,8 @@ const App = () => {
   const [starShip, setStarShip] = useState([]);
   const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [hd, setHd] = useState(true);
+  const [pg, setPG] = useState(false);
 
   //PAGINATION STATES
   const [search, setSearch] = useState("");
@@ -66,15 +68,17 @@ const App = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (search === "people") {
-      setFiltered(allData.filter((data) => data.gender));
-    }
-    if (search === "planets") {
-      setFiltered(allData.filter((data) => data.climate));
-    }
-    if (search === "ships") {
-      setFiltered(allData.filter((data) => data.model));
-    }
+    search ? setPG(true) : setPG(false);
+    // setHd(!hd);
+    // if (search === "people") {
+    //   setFiltered(allData.filter((data) => data.gender));
+    // }
+    // if (search === "planets") {
+    //   setFiltered(allData.filter((data) => data.climate));
+    // }
+    // if (search === "ships") {
+    //   setFiltered(allData.filter((data) => data.model));
+    // }
   };
 
   if (isLoading) {
@@ -98,27 +102,21 @@ const App = () => {
             setSearch(e.target.value);
           }}
         />
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            if (search === "people") {
-              setFiltered(allData.filter((data) => data.gender));
-            }
-            if (search === "planets") {
-              setFiltered(allData.filter((data) => data.climate));
-            }
-            if (search === "ships") {
-              setFiltered(allData.filter((data) => data.model));
-            }
-          }}
-        >
-          click me
-        </button>
+        <button type="button">click me</button>
       </form>
       <HeroSection people={people} planet={planet} starShip={starShip} />
-      <HomeDisplay starShip={starShip} people={people} />
-      <PeoplePaginator filtered={filtered} />
+      {hd && <HomeDisplay starShip={starShip} people={people} />}
+      {/* <PeoplePaginator people={people} /> */}
+      {/* <ShipPaginator starShip={starShip} /> */}
+      {pg && (
+        <Posts
+          people={people}
+          starShip={starShip}
+          search={search}
+          setHd={setHd}
+          setPG={setPG}
+        />
+      )}
     </main>
   );
 };

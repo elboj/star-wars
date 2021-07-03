@@ -6,17 +6,14 @@ import People from "../HomeDisplay/People/People";
 import { Pagination } from "@material-ui/lab";
 import StarShips from "../HomeDisplay/Starships/StarShips";
 
-function PeoplePaginator({ filtered }) {
+function PeoplePaginator({ people }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPagePerPost] = useState(10);
-  useEffect(() => {
-    <Pagination />;
-  }, [filtered]);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = filtered.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(filtered.length / postsPerPage);
+  const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(people.length / postsPerPage);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
