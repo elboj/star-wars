@@ -1,7 +1,7 @@
 import React from "react";
-import PeoplePaginator from "./PeoplePaginator";
-import ShipPaginator from "./ShipPaginator";
-
+import People from "../HomeDisplay/People/People";
+import StarShips from "../HomeDisplay/Starships/StarShips";
+import { Container, Grid } from "@material-ui/core";
 const Posts = ({
   people,
   starShip,
@@ -11,21 +11,30 @@ const Posts = ({
   setPHide,
   searchResult,
 }) => {
-  console.log(searchResult);
   return (
     <div>
-      {searchResult.map((result, index) => {
-        const { name, gender, model, birth_year } = result;
-        return (
-          <div key={index}>
-            <h1>Here are the search results</h1>
-            <p>{name}</p>
-            <p>{model}</p>
-            <p>{gender}</p>
-            <p>{birth_year}</p>
-          </div>
-        );
-      })}
+      <Container maxWidth="md" className="starship-container">
+        <Grid container spacing={4}>
+          {searchResult.map((result, index) => {
+            if (result.hasOwnProperty("model")) {
+              const { name, model, index } = result;
+              return (
+                <Grid item key={index} xs={12} sm={6} md={4}>
+                  <StarShips name={name} index={index} />;
+                </Grid>
+              );
+            }
+            if (result.hasOwnProperty("gender")) {
+              const { name, gender, index } = result;
+              return (
+                <Grid item key={index} xs={12} sm={6} md={6}>
+                  <People name={name} index={index} />;
+                </Grid>
+              );
+            }
+          })}
+        </Grid>
+      </Container>
       <button
         type="button"
         onClick={() => {
@@ -38,23 +47,6 @@ const Posts = ({
       </button>
     </div>
   );
-  // if (search === "people") {
-  //   setHd(false);
-  //   return <PeoplePaginator people={people} />;
-  // }
-  // if (search === "ship") {
-  //   setHd(false);
-  //   return <ShipPaginator starShip={starShip} />;
-  // }
-  // // setHd(true);
-  // return (
-  //   <div>
-  //     <h1>No result</h1>
-  //     <button type="button" onClick={() => setHd(true) && setPG(false)}>
-  //       back to home
-  //     </button>
-  //   </div>
-  // );
 };
 
 export default Posts;
