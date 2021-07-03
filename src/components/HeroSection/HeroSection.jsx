@@ -9,7 +9,7 @@ import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
 import useStyles from "./Herostyles";
 
-const HeroSection = ({ people, planet, starShip, handleSearch }) => {
+const HeroSection = () => {
   const classes = useStyles();
   const [query, setQuery] = useState("");
   const [clear, setClear] = useState(false);

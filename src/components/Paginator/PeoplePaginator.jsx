@@ -6,7 +6,6 @@ import People from "../HomeDisplay/People/People";
 import { Pagination } from "@material-ui/lab";
 
 function PeoplePaginator({ handleChange, filtered }) {
-  console.log(filtered);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPagePerPost] = useState(10);
 
@@ -23,6 +22,7 @@ function PeoplePaginator({ handleChange, filtered }) {
       <Container maxWidth="md" className="starship-container">
         <Grid container spacing={4}>
           {currentPosts.map((person, index) => {
+            console.log(person.hasOwnProperty("gender"));
             const { name, gender } = person;
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
