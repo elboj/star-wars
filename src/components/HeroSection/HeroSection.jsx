@@ -8,15 +8,27 @@ import { TiDeleteOutline } from "react-icons/ti";
 import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
 import useStyles from "./Herostyles";
+import { Link, withRouter } from "react-router-dom";
 
-const HeroSection = () => {
+const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
+  console.log(
+    // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
+    allData.filter(
+      (data) => data.hasOwnProperty("name") && data.name == "Tatooine"
+    )
+  );
   const classes = useStyles();
   const [query, setQuery] = useState("");
   const [clear, setClear] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQuery("");
+    console.log(
+      // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
+      allData.filter(
+        (data) => data.hasOwnProperty("name") && data.name == query
+      )
+    );
   };
 
   return (
@@ -31,9 +43,30 @@ const HeroSection = () => {
           color="transparent"
         >
           <Toolbar>
-            <Typography>
-              <img src={logo} alt="star-wars" height="35px" />
-            </Typography>
+            <Link to="/">
+              <Typography
+                onClick={() => {
+                  setHide(true);
+                  setPG(false);
+                }}
+              >
+                <img src={logo} alt="star-wars" height="35px" />
+              </Typography>
+            </Link>
+            <Link to="/people">
+              <Typography
+                variant="subtitle2"
+                onClick={() => {
+                  setPHide(true);
+                  setPG(false);
+                }}
+              >
+                People
+              </Typography>
+            </Link>
+            <Link to="/ships">
+              <Typography variant="subtitle2">Ships</Typography>
+            </Link>
           </Toolbar>
         </AppBar>
       </div>
@@ -80,4 +113,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default withRouter(HeroSection);

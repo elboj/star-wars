@@ -2,10 +2,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./styles.scss";
-import { HeroSection, HomeDisplay } from "./components/index";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import PeoplePaginator from "./components/Paginator/PeoplePaginator";
-import ShipPaginator from "./components/Paginator/ShipPaginator";
+import {
+  HeroSection,
+  HomeDisplay,
+  ShipPaginator,
+  PeoplePaginator,
+} from "./components/index";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./components/Paginator/Posts";
 
 const App = () => {
@@ -15,12 +18,13 @@ const App = () => {
   const [starShip, setStarShip] = useState([]);
   const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [hd, setHd] = useState(true);
+  const [hide, setHide] = useState(true);
   const [pg, setPG] = useState(false);
+  const [pHide, setPHide] = useState(true);
+  // const [sHide, setSHide] = useState(true);
 
   //PAGINATION STATES
   const [search, setSearch] = useState("");
-  const [filtered, setFiltered] = useState([]);
 
   //DATA FETCH
   const allDataFetch = () => {
@@ -60,31 +64,17 @@ const App = () => {
     allDataFetch();
   }, []);
 
-  // Get current posts
-  // const indexOfLastPost = currentPage * postsPerPage;
-  // const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  // const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
-  // const totalPages = Math.ceil(people.length / postsPerPage);
-
   const handleSearch = (e) => {
     e.preventDefault();
-    search ? setPG(true) : setPG(false);
-    // setHd(!hd);
-    // if (search === "people") {
-    //   setFiltered(allData.filter((data) => data.gender));
-    // }
-    // if (search === "planets") {
-    //   setFiltered(allData.filter((data) => data.climate));
-    // }
-    // if (search === "ships") {
-    //   setFiltered(allData.filter((data) => data.model));
-    // }
+    setHide(false);
+    setPHide(false);
+    setPG(true);
   };
 
   if (isLoading) {
     return (
       <main>
-        <HeroSection />
+        {/* <HeroSection /> */}
         <div className="fallback-container">
           <h1>...Loading</h1>
         </div>
@@ -104,19 +94,34 @@ const App = () => {
         />
         <button type="button">click me</button>
       </form>
-      <HeroSection people={people} planet={planet} starShip={starShip} />
-      {hd && <HomeDisplay starShip={starShip} people={people} />}
-      {/* <PeoplePaginator people={people} /> */}
-      {/* <ShipPaginator starShip={starShip} /> */}
-      {pg && (
-        <Posts
-          people={people}
-          starShip={starShip}
-          search={search}
-          setHd={setHd}
+      <Router>
+        <HeroSection
+          allData={allData}
+          setPHide={setPHide}
           setPG={setPG}
+          setHide={setHide}
         />
-      )}
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={() =>
+              hide && <HomeDisplay starShip={starShip} people={people} />
+            }
+          />
+          <Route
+            path="/people"
+            exact
+            component={() => pHide && <PeoplePaginator people={people} />}
+          />
+          <Route
+            path="/ships"
+            exact
+            component={() => pHide && <ShipPaginator starShip={starShip} />}
+          />
+        </Switch>
+      </Router>
+      {pg && <Posts setHide={setHide} setPG={setPG} setPHide={setPHide} />}
     </main>
   );
 };
