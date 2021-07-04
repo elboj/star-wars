@@ -55,7 +55,7 @@ function PeoplePaginator({ people, setPeople, categories }) {
           page={currentPage}
           onChange={handleChange}
         />
-        <PeopleSearch peopleIndex={peopleIndex} />
+        {hide && <PeopleSearch peopleIndex={peopleIndex} />}
       </Container>
     </div>
   );
