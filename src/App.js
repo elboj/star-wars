@@ -89,6 +89,10 @@ const App = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    if (search.trim() === "") {
+      console.log("no valid words");
+      return;
+    }
     setSearchResult(
       allData.filter(
         (data) =>
@@ -162,6 +166,7 @@ const App = () => {
             setPG={setPG}
             setPHide={setPHide}
             searchResult={searchResult}
+            setSearch={setSearch}
           />
         )}
       </main>

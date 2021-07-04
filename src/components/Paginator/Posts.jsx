@@ -17,15 +17,7 @@ import {
 import "../../scss/_posts.scss";
 import useStyles from "../HomeDisplay/People/styles";
 
-function Posts({
-  people,
-  starShip,
-  search,
-  setHide,
-  setPG,
-  setPHide,
-  searchResult,
-}) {
+function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
   const classes = useStyles();
   return (
     <div>
@@ -70,6 +62,7 @@ function Posts({
                     setHide(true);
                     setPHide(true);
                     setPG(false);
+                    setSearch("");
                   }}
                 >
                   Back to Home

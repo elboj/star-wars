@@ -9,6 +9,7 @@ function InputSearch({ search, setSearch, handleSearch }) {
           <GoSearch size="1.2rem" />
         </button>
         <input
+          required
           type="text"
           name="myInput"
           className="mhi-field"
