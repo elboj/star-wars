@@ -11,12 +11,9 @@ import {
   Button,
 } from "@material-ui/core";
 import { ssImages } from "../../../data/imgSS";
-import "../../../scss/_shipBP.scss";
-import "../../../scss/_cardShip.scss";
-import useStyles from "./styles";
+import "../../../scss/_starShip.scss";
 
 function StarShips({ name, model, cargo_capacity, index }) {
-  const classes = useStyles();
   return (
     <div>
       <Card className="root">
@@ -37,17 +34,16 @@ function StarShips({ name, model, cargo_capacity, index }) {
               cargo capacity:{cargo_capacity}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+              atque pariatur delectus deserunt quis facilis, magnam earum sed
+              reiciendis esse ab nesciunt voluptate. Numquam minima commodi
+              suscipit illum, laudantium amet.
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
+          <Button size="small" variant="contained" color="secondary">
+            Read more
           </Button>
         </CardActions>
       </Card>
