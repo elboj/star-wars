@@ -2,7 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    padding: "0.5rem 0",
+    padding: "3.5rem 0",
+    [theme.breakpoints.down("sm")]: {
+      padding: "0.7rem 0",
+    },
   },
   card: {
     height: "100%",
@@ -16,6 +19,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: "2rem",
     },
+  },
+  sectionUnderline: {
+    width: 200,
+    height: 3,
+    background: "black",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: 3,
+    marginTop: 3,
   },
 }));
 

@@ -1,7 +1,3 @@
-.hd-underline {
-  @include section-underline;
-}
-
 .hd-container {
   @include flex-column;
   padding: 2rem 0;

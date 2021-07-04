@@ -13,7 +13,7 @@ function Heading(props) {
       >
         {props.name}
       </Typography>
-      <div className="hd-underline"></div>
+      <div className={classes.sectionUnderline}></div>
     </Container>
   );
 }

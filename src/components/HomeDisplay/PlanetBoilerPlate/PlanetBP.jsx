@@ -69,6 +69,10 @@ function Banner(props) {
   );
 }
 
+/**
+ * The lines of code below are for customizing the carousel
+ */
+
 class BannerExample extends React.Component {
   constructor(props) {
     super(props);
@@ -130,7 +134,7 @@ class BannerExample extends React.Component {
 
   render() {
     return (
-      <div style={{ marginTop: "50px", color: "#494949" }}>
+      <div style={{ color: "#494949" }}>
         <Container maxWidth="md">
           <Carousel
             className="Example"
