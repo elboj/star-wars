@@ -49,6 +49,16 @@
   outline: none;
 }
 
-// .mhi-form {
-//   outline: 2px solid blue;
-// }
+.link-text {
+  color: white;
+  margin: 0 1rem !important;
+}
+
+.app-bar {
+  box-shadow: none;
+  background-color: black;
+}
+
+.grow {
+  flex-grow: 1;
+}

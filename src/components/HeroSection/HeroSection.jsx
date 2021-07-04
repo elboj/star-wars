@@ -1,16 +1,12 @@
 /* eslint-disable */
-
 import React from "react";
-import { useState } from "react";
-import { AppBar, Toolbar, Typography, TextField } from "@material-ui/core";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
-import useStyles from "./Herostyles";
 import InputSearch from "../InputSearch/InputSearch";
 import { Link, withRouter } from "react-router-dom";
 
 const HeroSection = ({
-  allData,
   setPHide,
   setPG,
   setHide,
@@ -18,37 +14,13 @@ const HeroSection = ({
   setSearch,
   handleSearch,
 }) => {
-  // console.log(
-  //   // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
-  //   allData.filter(
-  //     (data) => data.hasOwnProperty("name") && data.name == "Tatooine"
-  //   )
-  // );
-  const classes = useStyles();
-  const [query, setQuery] = useState("");
-  const [clear, setClear] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(
-      // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
-      allData.filter(
-        (data) => data.hasOwnProperty("name") && data.name == query
-      )
-    );
-  };
-
   return (
     <section
       className="main-hero-container"
       style={{ backgroundImage: `url(${hero})` }}
     >
       <div className="main-hero-app-bar">
-        <AppBar
-          position="static"
-          className={classes.appbar}
-          color="transparent"
-        >
+        <AppBar position="fixed" className="app-bar" color="secondary">
           <Toolbar>
             <Link to="/">
               <Typography
@@ -60,8 +32,10 @@ const HeroSection = ({
                 <img src={logo} alt="star-wars" height="35px" />
               </Typography>
             </Link>
+            <div className="grow"></div>
             <Link to="/people">
               <Typography
+                className="link-text"
                 variant="subtitle2"
                 onClick={() => {
                   setPHide(true);
@@ -72,10 +46,14 @@ const HeroSection = ({
               </Typography>
             </Link>
             <Link to="/ships">
-              <Typography variant="subtitle2">Ships</Typography>
+              <Typography variant="subtitle2" className="link-text">
+                Ships
+              </Typography>
             </Link>
             <Link to="/planets">
-              <Typography variant="subtitle2">Planets</Typography>
+              <Typography variant="subtitle2" className="link-text">
+                Planets
+              </Typography>
             </Link>
           </Toolbar>
         </AppBar>
