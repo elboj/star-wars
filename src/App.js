@@ -15,7 +15,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./components/Paginator/Posts";
 
 const App = () => {
-  //USE STATES
+  /**GLOBAL DEFINED STATES
+   * ALL STATES ARE USEFUL..
+   * DO NOT DELETE
+   */
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
@@ -25,7 +28,6 @@ const App = () => {
   const [pg, setPG] = useState(false);
   const [pHide, setPHide] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
-  const [categories, setCategories] = useState();
 
   //PAGINATION STATES
   const [search, setSearch] = useState("");
@@ -35,8 +37,6 @@ const App = () => {
     const peopleRequest = [];
     const shipRequest = [];
     const planetRequest = [];
-
-    //FUNCTIONALITY TO FILTER PEOPLE SEARCH...IF IT WORKS, WE CAN MOVE IT TO A NEW FILE AND EXPORT WHERE NEEDED AFTERWARDS
 
     for (let i = 1; i <= 9; i++) {
       peopleRequest.push(fetch("https://swapi.dev/api/people/?page=" + i));
@@ -63,12 +63,6 @@ const App = () => {
         setStarShip(totalList.slice(40, 75));
         setPeople(totalList.slice(76));
         setIsLoading(false);
-        const allCategories = [
-          "all",
-          ...new Set(totalList.slice(76).map((person) => person.gender)),
-        ];
-        // console.log(allCategories);
-        setCategories(allCategories);
       });
   };
 
