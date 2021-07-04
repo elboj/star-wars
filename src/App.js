@@ -69,19 +69,41 @@ const App = () => {
     allDataFetch();
   }, []);
 
+  /**
+   * *************************************************************************
+   * INTELLIGENT REGEX SEARXH.. THIS FUNCTIONALITY PRODUCES THE CLOSEST RESULTS
+   * TO THE USER INPUT IF THERE'S NO EXACT MATCH
+   * **************************************************************************
+   */
+
+  const checkName = (name, str) => {
+    var pattern = str
+      .split("")
+      .map((x) => {
+        return `(?=.*${x})`;
+      })
+      .join("");
+    var regex = new RegExp(`${pattern}`, "g");
+    return name.match(regex);
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchResult(
       allData.filter(
         (data) =>
-          data.hasOwnProperty("name") &&
-          data.name.toLowerCase() == search.toLowerCase().trim()
+          data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
+          checkName(data.name.substring(0, 3), search.substring(0, 3))
       )
     );
+
     setHide(false);
     setPHide(false);
     setPG(true);
   };
+  /************************************************************************
+   * **********************************************************************
+   */
 
   if (isLoading) {
     return (

@@ -27,7 +27,6 @@ function Posts({
   searchResult,
 }) {
   const classes = useStyles();
-  console.log(unknown);
   return (
     <div>
       <Container maxWidth="md" className="post-container">
