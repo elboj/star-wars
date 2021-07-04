@@ -27,10 +27,10 @@ function People(props) {
             <Typography gutterBottom variant="h6" gutterBottom>
               {props.name}
             </Typography>
-            <Typography variant="caption" display="block" gutterBottom>
+            <Typography variant="subtitle2" gutterBottom>
               {props.gender}
             </Typography>
-            <Typography variant="caption" display="block" gutterBottom>
+            <Typography variant="subtitle2" gutterBottom>
               {props.birth_year}
             </Typography>
 

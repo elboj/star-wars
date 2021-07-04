@@ -1,10 +1,8 @@
 import React from "react";
 import {
-  Container,
   Typography,
   Card,
   CardMedia,
-  Grid,
   CardContent,
   CardActions,
   CardActionArea,
@@ -27,10 +25,10 @@ function StarShips({ name, model, cargo_capacity, index }) {
             <Typography gutterBottom variant="h6" gutterBottom>
               {name}
             </Typography>
-            <Typography variant="caption" display="block" gutterBottom>
+            <Typography variant="subtitle2" gutterBottom>
               model:{model}
             </Typography>
-            <Typography variant="caption" display="block" gutterBottom>
+            <Typography variant="subtitle2" gutterBottom>
               cargo capacity:{cargo_capacity}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
