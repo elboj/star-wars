@@ -46,12 +46,26 @@ const HeroSection = ({
               </Typography>
             </Link>
             <Link to="/ships">
-              <Typography variant="subtitle2" className="link-text">
+              <Typography
+                variant="subtitle2"
+                className="link-text"
+                onClick={() => {
+                  setPHide(true);
+                  setPG(false);
+                }}
+              >
                 Ships
               </Typography>
             </Link>
             <Link to="/planets">
-              <Typography variant="subtitle2" className="link-text">
+              <Typography
+                variant="subtitle2"
+                className="link-text"
+                onClick={() => {
+                  setPHide(true);
+                  setPG(false);
+                }}
+              >
                 Planets
               </Typography>
             </Link>

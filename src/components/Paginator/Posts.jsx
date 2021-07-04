@@ -17,103 +17,47 @@ import {
 import "../../scss/_posts.scss";
 import useStyles from "../HomeDisplay/People/styles";
 
-function Posts({
-  people,
-  starShip,
-  search,
-  setHide,
-  setPG,
-  setPHide,
-  searchResult,
-}) {
+function Posts({ setHide, setPG, setPHide, searchResult }) {
   const classes = useStyles();
   return (
-    <div>
-      <Container maxWidth="md" className="post-container">
-        <Grid container>
-          <Card className={`${searchResult.length} ? post-card : null`}>
-            <CardActionArea>
-              <CardContent>
-                <Typography variant="h5">Search Results</Typography>
-                <Typography>{searchResult.length} result found</Typography>
-              </CardContent>
-              <CardMedia
-                className="cover"
-                height="140"
-                image={
-                  searchResult.length > 0
-                    ? "https://source.unsplash.com/random"
-                    : { unknown }
-                }
-              />
-              {searchResult.map((result, index) => {
-                let title = Object.keys(result);
-                let answer = Object.values(result);
-                return title.map((x, index) => {
-                  return (
+    <Container maxWidth="md" className="post-container">
+      <Grid container>
+        {searchResult.map((result, index) => {
+          let title = Object.keys(result);
+          let answer = Object.values(result);
+          return (
+            <Grid key={index} item xs={12} sm={6} md={6}>
+              {title.map((x, index) => {
+                return (
+                  <Card className={`${searchResult.length} ? post-card : null`}>
                     <CardContent>
-                      <Typography variant="subtitle1" gutterBottom>
+                      <Typography variant="subtitle1">
                         {x} -- {answer[index]}
                       </Typography>
                     </CardContent>
-                  );
-                });
+                  </Card>
+                );
               })}
-            </CardActionArea>
-            <CardActions>
-              <Button
-                size="large"
-                variant="contained"
-                color="secondary"
-                onClick={() => {
-                  setHide(true);
-                  setPHide(true);
-                  setPG(false);
-                }}
-              >
-                Back to Home
-              </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-      </Container>
-    </div>
+            </Grid>
+          );
+        })}
+        <CardActions>
+          <Button
+            size="large"
+            variant="contained"
+            color="secondary"
+            onClick={() => {
+              setHide(true);
+              setPHide(true);
+              setPG(false);
+            }}
+          >
+            Back to Home
+          </Button>
+        </CardActions>
+      </Grid>
+    </Container>
   );
 }
 
 export default Posts;
-
-// const Posts = ({
-// people,
-// starShip,
-// search,
-// setHide,
-// setPG,
-// setPHide,
-// searchResult,
-// }) => {
-//   return (
-//     <div>
-//       <Container maxWidth="md" className="starship-container">
-//         console.log(searchResult);
-//         <Grid container spacing={4}>
-//           {searchResult.map((result, index) => {
-
-//             }
-
-//           })}
-//         </Grid>
-//       </Container>
-//       <button
-//         type="button"
-//         onClick={() => {
-//           setHide(true);
-//           setPHide(true);
-//           setPG(false);
-//         }}
-//       >
-//         back to home
-//       </button>
-//     </div>
-//   );
-// };
