@@ -3,14 +3,21 @@
 import React from "react";
 import { useState } from "react";
 import { AppBar, Toolbar, Typography, TextField } from "@material-ui/core";
-import { GoSearch } from "react-icons/go";
-import { TiDeleteOutline } from "react-icons/ti";
 import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
 import useStyles from "./Herostyles";
+import InputSearch from "../InputSearch/InputSearch";
 import { Link, withRouter } from "react-router-dom";
 
-const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
+const HeroSection = ({
+  allData,
+  setPHide,
+  setPG,
+  setHide,
+  search,
+  setSearch,
+  handleSearch,
+}) => {
   // console.log(
   //   // allData[0].hasOwnProperty("name") && allData[0]["name"] == "Tatooine",
   //   allData.filter(
@@ -85,32 +92,11 @@ const HeroSection = ({ allData, setPHide, setPG, setHide }) => {
           </p>
           <p className="mhc-body">Starships and Planets</p>
         </article>
-        <div className="main-hero-input">
-          {/* <form className="mhi-form" onSubmit={handleSubmit}>
-            <button className="mhi-button">
-              <GoSearch size="1.2rem" />
-            </button>
-            <input
-              type="text"
-              name="myInput"
-              className="mhi-field"
-              value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-              }}
-            />
-            <button className="mhi-button">
-              {query && (
-                <TiDeleteOutline
-                  size="1.5rem"
-                  onClick={() => {
-                    setQuery("");
-                  }}
-                />
-              )}
-            </button>
-          </form> */}
-        </div>
+        <InputSearch
+          search={search}
+          setSearch={setSearch}
+          handleSearch={handleSearch}
+        />
       </div>
     </section>
   );

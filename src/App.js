@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from "react";
 import { useState, useEffect } from "react";
+import { Container } from "@material-ui/core";
+import InputSearch from "./components/InputSearch/InputSearch";
 import "./styles.scss";
 import {
   HeroSection,
@@ -106,23 +108,15 @@ const App = () => {
   }
   return (
     <main>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          className="test-input"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-        <button type="button">click me</button>
-      </form>
       <Router>
         <HeroSection
           allData={allData}
           setPHide={setPHide}
           setPG={setPG}
           setHide={setHide}
+          search={search}
+          setSearch={setSearch}
+          handleSearch={handleSearch}
         />
         <Switch>
           <Route
