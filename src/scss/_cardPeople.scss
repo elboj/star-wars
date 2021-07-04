@@ -3,15 +3,6 @@
 
 .people-card {
   @include flex-row;
-  // border: 2px solid red;
-  // height: 390px;
-  // justify-content: $equal-spacing;
-}
-
-.people-card-media {
-  height: 0;
-  padding-top: 56.25%; // 16:9, 56.25
-  margin-top: 30;
 }
 
 .person-details {
@@ -27,25 +18,10 @@
   display: flex;
   padding-top: 56.25%;
   align-items: center;
-  // left and bottom is what bring the image to the left side
-  //toggle to see difference
   padding-left: 15rem;
-  padding-bottom: 40px;
 }
 
-.person-info {
-  padding: 2rem 0;
-  // font-size: $small-font-size !important;
-  text-align: justify !important;
-}
-
-.person-name {
-  font-size: $normal-font-size !important;
-  font-weight: 700 !important;
-}
-
-.person-subinfo {
-  font: {
-    size: $small-font-size !important;
-  }
+.read-more-btn {
+  background-color: transparent;
+  color: red;
 }

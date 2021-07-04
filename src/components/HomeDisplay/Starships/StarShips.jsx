@@ -21,7 +21,7 @@ function StarShips({ name, model, cargo_capacity, index }) {
           <CardMedia
             className="ship-media"
             image={ssImages[2].src}
-            title="Contemplative Reptile"
+            title={name}
           />
           <CardContent>
             <Typography gutterBottom variant="h6" gutterBottom>
