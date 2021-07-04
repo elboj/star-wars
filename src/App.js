@@ -11,6 +11,7 @@ import {
 } from "./components/index";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./components/Paginator/Posts";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   /**GLOBAL DEFINED STATES
@@ -92,53 +93,57 @@ const App = () => {
     );
   }
   return (
-    <main>
-      <Router>
-        <HeroSection
-          allData={allData}
-          setPHide={setPHide}
-          setPG={setPG}
-          setHide={setHide}
-          search={search}
-          setSearch={setSearch}
-          handleSearch={handleSearch}
-        />
-        <Switch>
-          <Route
-            path="/"
-            exact
-            component={() =>
-              hide && <HomeDisplay starShip={starShip} people={people} />
-            }
+    <div>
+      <main>
+        <Router>
+          <HeroSection
+            allData={allData}
+            setPHide={setPHide}
+            setPG={setPG}
+            setHide={setHide}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
           />
-          <Route
-            path="/people"
-            exact
-            component={() =>
-              pHide && <PeoplePaginator people={people} setPeople={setPeople} />
-            }
+          <Switch>
+            <Route
+              path="/"
+              exact
+              component={() =>
+                hide && <HomeDisplay starShip={starShip} people={people} />
+              }
+            />
+            <Route
+              path="/people"
+              exact
+              component={() =>
+                pHide && (
+                  <PeoplePaginator people={people} setPeople={setPeople} />
+                )
+              }
+            />
+            <Route
+              path="/ships"
+              exact
+              component={() => pHide && <ShipPaginator starShip={starShip} />}
+            />
+            <Route
+              path="/planets"
+              exact
+              component={() => pHide && <PlanetPaginator planet={planet} />}
+            />
+          </Switch>
+        </Router>
+        {pg && (
+          <Posts
+            setHide={setHide}
+            setPG={setPG}
+            setPHide={setPHide}
+            searchResult={searchResult}
           />
-          <Route
-            path="/ships"
-            exact
-            component={() => pHide && <ShipPaginator starShip={starShip} />}
-          />
-          <Route
-            path="/planets"
-            exact
-            component={() => pHide && <PlanetPaginator planet={planet} />}
-          />
-        </Switch>
-      </Router>
-      {pg && (
-        <Posts
-          setHide={setHide}
-          setPG={setPG}
-          setPHide={setPHide}
-          searchResult={searchResult}
-        />
-      )}
-    </main>
+        )}
+      </main>
+    </div>
   );
 };
 

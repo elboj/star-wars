@@ -44,6 +44,11 @@ const HomeDisplay = ({ starShip, people }) => {
           })}
         </Grid>
       </Container>
+      <div>
+        <footer>
+          <p class="footer-text">Copyright &copy; Your Website 2020</p>
+        </footer>
+      </div>
     </div>
   );
 };

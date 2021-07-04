@@ -27,3 +27,11 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+footer {
+  display: flex;
+  margin: 3rem;
+  height: 50px;
+  justify-content: center;
+  bottom: 0;
+}
