@@ -1,0 +1,16 @@
+@import "./mixin";
+
+.post-container {
+  //   border: 2px solid red;
+  margin-top: 5rem;
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-card {
+  //   border: 2px solid green;
+  @include flex-column;
+  //   height: 100%;
+  width: 100%;
+}
