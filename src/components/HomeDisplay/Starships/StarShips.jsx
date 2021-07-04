@@ -14,7 +14,7 @@ import "../../../scss/_starShip.scss";
 function StarShips({ name, model, cargo_capacity, index }) {
   return (
     <div>
-      <Card className="root">
+      <Card className="card">
         <CardActionArea>
           <CardMedia
             className="ship-media"

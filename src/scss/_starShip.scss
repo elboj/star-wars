@@ -1,14 +1,10 @@
 @import "./mixin";
 
-.starship-container {
-  padding-top: 2rem;
+.btn-holder {
+  @include more-btn-container;
 
-  .btn-holder {
-    @include more-btn-container;
-
-    .more-btn {
-      @include more-btn;
-    }
+  .more-btn {
+    @include more-btn;
   }
 }
 
@@ -20,10 +16,6 @@
     @include flex-row;
     justify-content: $right;
   }
-}
-
-.root {
-  max-width: 345;
 }
 
 .ship-media {
