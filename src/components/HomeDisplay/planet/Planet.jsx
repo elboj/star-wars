@@ -14,7 +14,6 @@ import {
 } from "@material-ui/core";
 
 function Planet(props) {
-  console.log(props);
   const classes = useStyles();
   return (
     // <h1>Planet Pagination</h1>
