@@ -27,11 +27,15 @@ function StarShips({ name, model, cargo_capacity, index }) {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="p">
+            <Typography gutterBottom variant="h6" gutterBottom>
               {name}
             </Typography>
-            <p>{model}</p>
-            <p>{cargo_capacity}</p>
+            <Typography variant="caption" display="block" gutterBottom>
+              model:{model}
+            </Typography>
+            <Typography variant="caption" display="block" gutterBottom>
+              cargo capacity:{cargo_capacity}
+            </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               Lizards are a widespread group of squamate reptiles, with over
               6,000 species, ranging across all continents except Antarctica
