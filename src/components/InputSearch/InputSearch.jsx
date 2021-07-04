@@ -1,6 +1,5 @@
 import React from "react";
 import { GoSearch } from "react-icons/go";
-// import "../../scss/_inputSearch.scss";
 
 function InputSearch({ search, setSearch, handleSearch }) {
   return (
