@@ -75,7 +75,7 @@ const App = () => {
       allData.filter(
         (data) =>
           data.hasOwnProperty("name") &&
-          data.name.toLowerCase() == search.toLowerCase()
+          data.name.toLowerCase() == search.toLowerCase().trim()
       )
     );
     setHide(false);
