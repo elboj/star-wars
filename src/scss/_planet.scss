@@ -8,20 +8,15 @@
   .action {
     @include flex-row;
     justify-content: $right;
-
-    // .button {
-    //   background-color: black;
-    // }
   }
 }
 
-.root {
-  // max-width: 345;
+.planet-card {
   width: 300px;
 }
 
 .planet-media {
-  height: 300px;
-  padding-top: 56.25%; // 16:9, 56.25
+  height: 100px;
+  padding-top: 80.25%; // 16:9, 56.25
   margin-top: 30;
 }

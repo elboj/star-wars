@@ -22,6 +22,15 @@ const useStyles = makeStyles((theme) => ({
       height: "auto !important",
     },
   },
+
+  planetCard: {
+    display: "flex",
+    boxShadow: "none",
+    [theme.breakpoints.down("xs")]: {
+      height: "auto !important",
+      width: "auto",
+    },
+  },
 }));
 
 export default useStyles;
