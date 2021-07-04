@@ -38,7 +38,7 @@ function PeoplePaginator({ people, setPeople, categories }) {
     <div>
       <Heading name="Popular People" />
       <Container maxWidth="md" className="starship-container">
-        <PeopleFiltered categories={categories} filterItems={filterItems} />
+        {/* <PeopleFiltered categories={categories} filterItems={filterItems} /> */}
         <Grid container spacing={4}>
           {currentPosts.map((person, index) => {
             return (
