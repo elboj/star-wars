@@ -1,8 +1,6 @@
 /* eslint-disable */
 import React from "react";
 import { useState, useEffect } from "react";
-import { Container } from "@material-ui/core";
-import InputSearch from "./components/InputSearch/InputSearch";
 import "./styles.scss";
 import {
   HeroSection,
@@ -19,6 +17,7 @@ const App = () => {
    * ALL STATES ARE USEFUL..
    * DO NOT DELETE
    */
+
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
@@ -57,7 +56,6 @@ const App = () => {
       .then((data) => {
         const totalList = [];
         data.forEach((d) => totalList.push(...d.results));
-        // console.log(totalList);
         setAllData(totalList);
         setPlanet(totalList.slice(0, 39));
         setStarShip(totalList.slice(40, 75));
@@ -79,12 +77,6 @@ const App = () => {
           data.name.toLowerCase() == search.toLowerCase()
       )
     );
-    console.log(
-      allData.filter(
-        (data) =>
-          data.hasOwnProperty("name") && data.name.toLowerCase() == search
-      )
-    );
     setHide(false);
     setPHide(false);
     setPG(true);
@@ -93,7 +85,6 @@ const App = () => {
   if (isLoading) {
     return (
       <main>
-        {/* <HeroSection /> */}
         <div className="fallback-container">
           <h1>...Loading</h1>
         </div>
@@ -124,13 +115,7 @@ const App = () => {
             path="/people"
             exact
             component={() =>
-              pHide && (
-                <PeoplePaginator
-                  people={people}
-                  setPeople={setPeople}
-                  categories={categories}
-                />
-              )
+              pHide && <PeoplePaginator people={people} setPeople={setPeople} />
             }
           />
           <Route
