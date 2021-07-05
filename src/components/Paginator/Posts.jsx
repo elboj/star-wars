@@ -13,7 +13,6 @@ import {
   CardActionArea,
   Button,
 } from "@material-ui/core";
-// import "../../scss/_cardPeople.scss";
 import "../../scss/_posts.scss";
 import useStyles from "../HomeDisplay/People/styles";
 
