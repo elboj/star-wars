@@ -12,7 +12,7 @@ import { ssImages } from "../../../data/imgSS";
 import { Link, withRouter } from "react-router-dom";
 import "../../../scss/_starShip.scss";
 
-function StarShips({ name, model, cargo_capacity, randNumb }) {
+function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
   return (
     <div>
       <Card className="card">
@@ -42,7 +42,14 @@ function StarShips({ name, model, cargo_capacity, randNumb }) {
         </CardActionArea>
         <CardActions>
           <Link to="/readmore">
-            <Button size="small" variant="contained" color="secondary">
+            <Button
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={() => {
+                setRm(true);
+              }}
+            >
               Read more
             </Button>
           </Link>

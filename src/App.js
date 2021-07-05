@@ -27,6 +27,7 @@ const App = () => {
   const [hide, setHide] = useState(true);
   const [pg, setPG] = useState(false);
   const [pHide, setPHide] = useState(true);
+  const [rm, setRm] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
 
   //PAGINATION DATA
@@ -97,6 +98,7 @@ const App = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setRm(false);
     if (search.trim() === "") {
       console.log("no valid words");
       return;
@@ -193,6 +195,7 @@ const App = () => {
                   postsPerPage={postsPerPage}
                   handleChange={handleChange}
                   randNumb={randNumb}
+                  setRm={setRm}
                 />
               )
             }
@@ -219,7 +222,7 @@ const App = () => {
         <Route
           path="/readmore"
           exact
-          component={() => <StarShipsRM randNumb={randNumb} />}
+          component={() => rm && <StarShipsRM randNumb={randNumb} />}
         />
       </Router>
       {pg && (

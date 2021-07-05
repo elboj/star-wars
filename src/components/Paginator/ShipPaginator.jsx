@@ -12,6 +12,7 @@ function ShipPaginator({
   postsPerPage,
   handleChange,
   randNumb,
+  setRm,
 }) {
   const currentPosts = starShip.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(starShip.length / postsPerPage);
@@ -30,6 +31,7 @@ function ShipPaginator({
                   model={model}
                   index={index}
                   randNumb={randNumb}
+                  setRm={setRm}
                 />
               </Grid>
             );
