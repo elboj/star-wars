@@ -8,6 +8,7 @@ import {
   CardMedia,
   CardContent,
   CardActionArea,
+  Button,
 } from "@material-ui/core";
 import useStyles from "./styles";
 
@@ -38,13 +39,13 @@ function People(props) {
               {show
                 ? peopleImage[0].info
                 : `${peopleImage[0].info.substring(0, 50)}...`}
-              <button
+              <Button
                 className="read-more-btn"
                 size="small"
                 onClick={() => setShow(!show)}
               >
                 {show ? "show less" : "  read more"}
-              </button>
+              </Button>
             </Typography>
           </CardContent>
         </div>

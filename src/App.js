@@ -2,6 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./styles.scss";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   HeroSection,
   HomeDisplay,
@@ -9,9 +10,8 @@ import {
   PeoplePaginator,
   PlanetPaginator,
 } from "./components/index";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./components/Paginator/Posts";
-import Footer from "./components/Footer/Footer";
+import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
   /**GLOBAL DEFINED STATES
@@ -216,6 +216,11 @@ const App = () => {
             }
           />
         </Switch>
+        <Route
+          path="/readmore"
+          exact
+          component={() => <StarShipsRM randNumb={randNumb} />}
+        />
       </Router>
       {pg && (
         <Posts
@@ -228,7 +233,7 @@ const App = () => {
       )}
       <div>
         <footer>
-          <p class="footer-text">Copyright &copy; Oluwatobi Adaja 2021</p>
+          <p className="footer-text">Copyright &copy; Oluwatobi Adaja 2021</p>
         </footer>
       </div>
     </main>

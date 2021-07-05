@@ -9,10 +9,10 @@ import {
   Button,
 } from "@material-ui/core";
 import { ssImages } from "../../../data/imgSS";
+import { Link, withRouter } from "react-router-dom";
 import "../../../scss/_starShip.scss";
 
-function StarShips({ name, model, cargo_capacity, index, randNumb }) {
-  console.log(randNumb);
+function StarShips({ name, model, cargo_capacity, randNumb }) {
   return (
     <div>
       <Card className="card">
@@ -41,13 +41,15 @@ function StarShips({ name, model, cargo_capacity, index, randNumb }) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" variant="contained" color="secondary">
-            Read more
-          </Button>
+          <Link to="/readmore">
+            <Button size="small" variant="contained" color="secondary">
+              Read more
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </div>
   );
 }
 
-export default StarShips;
+export default withRouter(StarShips);

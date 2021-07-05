@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { Container, Grid } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import "../../../scss/_pc.scss";
 import useStyles from "./styles";

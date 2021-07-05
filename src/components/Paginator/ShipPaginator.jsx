@@ -16,13 +16,6 @@ function ShipPaginator({
   const currentPosts = starShip.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(starShip.length / postsPerPage);
 
-  // const randNumb = () => {
-  //   return Math.floor(Math.random() * 5);
-  // };
-
-  // randNumb();
-  // console.log("seeing console");
-
   return (
     <div>
       <Heading name="Popular Starships" />
