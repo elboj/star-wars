@@ -141,7 +141,7 @@ const App = () => {
           />
           <Switch>
             <Route
-              path="/"
+              path="/home"
               exact
               component={() =>
                 hide && <HomeDisplay starShip={starShip} people={people} />

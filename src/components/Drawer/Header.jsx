@@ -8,7 +8,7 @@ function Header({ setHide, setPHide, setPG }) {
     <div>
       <AppBar position="fixed" className="app-bar" color="secondary">
         <Toolbar>
-          <Link to="/">
+          <Link to="/home">
             <Typography
               onClick={() => {
                 setHide(true);
