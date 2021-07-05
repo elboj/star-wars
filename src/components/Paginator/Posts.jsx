@@ -16,7 +16,7 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
   const classes = useStyles();
   return (
     <Container maxWidth="md" className="post-container" justify="center">
-      <Grid container justify="center">
+      <Grid container justify="center" spacing={3}>
         {searchResult.length === 0 && (
           <div>
             <Typography variant="h5">Search Results</Typography>
@@ -42,6 +42,10 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
         )}
         {searchResult.length !== 0 && (
           <div>
+            <CardContent>
+              <Typography variant="h5">Search Results</Typography>
+              <Typography>{searchResult.length} result found</Typography>
+            </CardContent>
             {searchResult.map((result, index) => {
               let title = Object.keys(result);
               let answer = Object.values(result);
@@ -55,10 +59,10 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                         image={"https://source.unsplash.com/random"}
                       />
                       <CardContent>
-                        {title.map((x, index) => {
+                        {title.map((key, index) => {
                           return (
-                            <Typography variant="subtitle2">
-                              {x}:{answer[index]}
+                            <Typography variant="subtitle2" gutterBottom>
+                              {key}: {answer[index]}
                             </Typography>
                           );
                         })}
