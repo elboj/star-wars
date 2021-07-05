@@ -46,9 +46,9 @@ function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
               size="small"
               variant="contained"
               color="secondary"
-              onClick={() => {
-                setRm(true);
-              }}
+              // onClick={() => {
+              //   setRm(true);
+              // }}
             >
               Read more
             </Button>
