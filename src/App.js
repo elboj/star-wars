@@ -29,7 +29,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [hide, setHide] = useState(true);
   const [pHide, setPHide] = useState(true);
-  const [rm, setRm] = useState(true);
+  // const [rm, setRm] = useState(true);
   const [pg, setPG] = useState(false);
 
   /**
@@ -206,7 +206,7 @@ const App = () => {
                   postsPerPage={postsPerPage}
                   handleChange={handleChange}
                   randNumb={randNumb}
-                  setRm={setRm}
+                  // setRm={setRm}
                 />
               )
             }
@@ -230,11 +230,11 @@ const App = () => {
             }
           />
         </Switch>
-        <Route
+        {/* <Route
           path="/readmore"
           exact
           component={() => rm && <StarShipsRM randNumb={randNumb} />}
-        />
+        /> */}
       </Router>
       {pg && (
         <Posts

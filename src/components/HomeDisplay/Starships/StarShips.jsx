@@ -19,7 +19,7 @@ function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
         <CardActionArea>
           <CardMedia
             className="ship-media"
-            image={ssImages[randNumb(6)].src}
+            image={ssImages[1].src}
             title={name}
           />
           <CardContent>
