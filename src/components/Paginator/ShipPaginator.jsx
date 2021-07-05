@@ -1,23 +1,20 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
-import People from "../HomeDisplay/People/People";
 import StarShips from "../HomeDisplay/Starships/StarShips";
 import { Pagination } from "@material-ui/lab";
 
-function ShipPaginator({ starShip }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPagePerPost] = useState(10);
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+function ShipPaginator({
+  starShip,
+  currentPage,
+  indexOfFirstPost,
+  indexOfLastPost,
+  postsPerPage,
+  handleChange,
+}) {
   const currentPosts = starShip.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(starShip.length / postsPerPage);
 
-  const handleChange = (event, value) => {
-    setCurrentPage(value);
-  };
   return (
     <div>
       <Heading name="Popular Starships" />

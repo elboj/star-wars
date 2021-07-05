@@ -29,8 +29,16 @@ const App = () => {
   const [pHide, setPHide] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
 
-  //PAGINATION STATES
+  //PAGINATION DATA
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPagePerPost] = useState(10);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  const handleChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   //DATA FETCH
   const allDataFetch = () => {
@@ -144,19 +152,52 @@ const App = () => {
               exact
               component={() =>
                 pHide && (
-                  <PeoplePaginator people={people} setPeople={setPeople} />
+                  <PeoplePaginator
+                    people={people}
+                    setPeople={setPeople}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    indexOfLastPost={indexOfLastPost}
+                    indexOfFirstPost={indexOfFirstPost}
+                    postsPerPage={postsPerPage}
+                    handleChange={handleChange}
+                  />
                 )
               }
             />
             <Route
               path="/ships"
               exact
-              component={() => pHide && <ShipPaginator starShip={starShip} />}
+              component={() =>
+                pHide && (
+                  <ShipPaginator
+                    starShip={starShip}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    indexOfLastPost={indexOfLastPost}
+                    indexOfFirstPost={indexOfFirstPost}
+                    postsPerPage={postsPerPage}
+                    handleChange={handleChange}
+                  />
+                )
+              }
             />
             <Route
               path="/planets"
               exact
-              component={() => pHide && <PlanetPaginator planet={planet} />}
+              component={() =>
+                pHide && (
+                  <PlanetPaginator
+                    planet={planet}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    indexOfLastPost={indexOfLastPost}
+                    indexOfFirstPost={indexOfFirstPost}
+                    postsPerPage={postsPerPage}
+                    handleChange={handleChange}
+                  />
+                )
+              }
             />
           </Switch>
         </Router>

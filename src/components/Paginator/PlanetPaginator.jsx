@@ -1,22 +1,20 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import Planet from "../HomeDisplay/Planet/Planet";
 import { Pagination } from "@material-ui/lab";
 
-function PlanetPaginator({ planet }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPagePerPost] = useState(10);
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+function PlanetPaginator({
+  planet,
+  currentPage,
+  indexOfFirstPost,
+  indexOfLastPost,
+  postsPerPage,
+  handleChange,
+}) {
   const currentPosts = planet.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(planet.length / postsPerPage);
 
-  const handleChange = (event, value) => {
-    setCurrentPage(value);
-  };
   return (
     <div>
       <Heading name="Popular Planet" />
