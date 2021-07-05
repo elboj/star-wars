@@ -10,7 +10,7 @@ import {
   Button,
 } from "@material-ui/core";
 import "../../scss/_posts.scss";
-import useStyles from "../HomeDisplay/People/styles";
+import useStyles from "./styles";
 
 function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
   const classes = useStyles();
@@ -51,10 +51,10 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
               let answer = Object.values(result);
               return (
                 <Grid key={index} item xs={12} sm={12} md={12}>
-                  <Card className="card">
+                  <Card className={`card ${classes.planetCard}`}>
                     <CardActionArea>
                       <CardMedia
-                        className="planet-media"
+                        className={`planet-media ${classes.planetMedia}`}
                         height="70"
                         image={"https://source.unsplash.com/random"}
                       />
