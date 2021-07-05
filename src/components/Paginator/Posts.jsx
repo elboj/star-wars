@@ -21,10 +21,10 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
   const classes = useStyles();
   return (
     <div>
-      <Container maxWidth="md" className="post-container">
-        <Grid container>
-          <Grid item xs={12} sm={6} md={12}>
-            <Card className={`${searchResult.length} ? post-card : null`}>
+      <Container maxWidth="md" className="post-container" justify="center">
+        <Grid container justify="center">
+          <Grid item xs={12} sm={12} md={12}>
+            <Card className="card">
               <CardActionArea>
                 <CardContent>
                   <Typography variant="h5">Search Results</Typography>
@@ -32,11 +32,11 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                 </CardContent>
                 <CardMedia
                   className="cover"
-                  height="140"
+                  height="70"
                   image={
                     searchResult.length > 0
                       ? "https://source.unsplash.com/random"
-                      : { unknown }
+                      : null
                   }
                 />
                 {searchResult.map((result, index) => {
@@ -46,7 +46,7 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                     return (
                       <CardContent>
                         <Typography variant="subtitle1">
-                          {x} -- {answer[index]}
+                          {x}:{answer[index]}
                         </Typography>
                       </CardContent>
                     );
