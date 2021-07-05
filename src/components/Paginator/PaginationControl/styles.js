@@ -6,10 +6,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     boxShadow: "none",
-    // [theme.breakpoints.down("xs")]: {
-    //   height: "auto !important",
-    //   width: "300px",
-    // },
   },
 }));
 
