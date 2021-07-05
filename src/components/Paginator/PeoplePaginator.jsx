@@ -6,6 +6,7 @@ import People from "../HomeDisplay/People/People";
 import { Pagination } from "@material-ui/lab";
 import PeopleFiltered from "./PeopleFiltered";
 import PeopleSearch from "./PeopleSearch";
+import PC from "./PaginationControl/PC";
 
 function PeoplePaginator({
   people,
@@ -47,12 +48,10 @@ function PeoplePaginator({
             );
           })}
         </Grid>
-        <Pagination
-          count={totalPages}
-          variant="outlined"
-          shape="rounded"
-          page={currentPage}
-          onChange={handleChange}
+        <PC
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handleChange={handleChange}
         />
         {hide && <PeopleSearch peopleIndex={peopleIndex} />}
       </Container>

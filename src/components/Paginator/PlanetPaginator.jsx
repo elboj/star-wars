@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import Planet from "../HomeDisplay/Planet/Planet";
-import { Pagination } from "@material-ui/lab";
+import PC from "./PaginationControl/PC";
 
 function PlanetPaginator({
   planet,
@@ -28,12 +28,10 @@ function PlanetPaginator({
             );
           })}
         </Grid>
-        <Pagination
-          count={totalPages}
-          variant="outlined"
-          shape="rounded"
-          page={currentPage}
-          onChange={handleChange}
+        <PC
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handleChange={handleChange}
         />
       </Container>
     </div>
