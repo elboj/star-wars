@@ -20,7 +20,7 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
         {searchResult.length === 0 && (
           <div>
             <Typography variant="h5">Search Results</Typography>
-            <Typography variant="h5">
+            <Typography variant="subtitle1" align="center">
               {searchResult.length} result found
             </Typography>
             <CardActions>
