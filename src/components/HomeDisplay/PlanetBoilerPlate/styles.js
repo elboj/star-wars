@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
   media: {
     [theme.breakpoints.down("sm")]: {
       height: "290px !important",
-      border: "2px solid red",
     },
   },
 
