@@ -57,7 +57,7 @@ function StarShipsRM({ randNumb }) {
           </CardContent>
           <Container maxWidth="md" className="starship-container">
             <Grid container spacing={4}>
-              <Grid key={randNumb()} item xs={12} sm={6} md={4}>
+              <Grid key={1} item xs={12} sm={6} md={4}>
                 <Card className="card">
                   <CardActionArea>
                     <CardMedia
@@ -67,7 +67,7 @@ function StarShipsRM({ randNumb }) {
                   </CardActionArea>
                 </Card>
               </Grid>
-              <Grid key={randNumb()} item xs={12} sm={6} md={4}>
+              <Grid key={2} item xs={12} sm={6} md={4}>
                 <Card className="card">
                   <CardActionArea>
                     <CardMedia
@@ -77,7 +77,7 @@ function StarShipsRM({ randNumb }) {
                   </CardActionArea>
                 </Card>
               </Grid>
-              <Grid key={randNumb()} item xs={12} sm={6} md={4}>
+              <Grid key={3} item xs={12} sm={6} md={4}>
                 <Card className="card">
                   <CardActionArea>
                     <CardMedia
