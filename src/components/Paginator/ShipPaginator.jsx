@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import StarShips from "../HomeDisplay/Starships/StarShips";
-import { Pagination } from "@material-ui/lab";
+import PC from "./PaginationControl/PC";
 
 function ShipPaginator({
   starShip,
@@ -11,6 +11,8 @@ function ShipPaginator({
   indexOfLastPost,
   postsPerPage,
   handleChange,
+  randNumb,
+  setRm,
 }) {
   const currentPosts = starShip.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(starShip.length / postsPerPage);
@@ -24,17 +26,21 @@ function ShipPaginator({
             const { name, model } = ship;
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <StarShips name={name} model={model} index={index} />
+                <StarShips
+                  name={name}
+                  model={model}
+                  index={index}
+                  randNumb={randNumb}
+                  setRm={setRm}
+                />
               </Grid>
             );
           })}
         </Grid>
-        <Pagination
-          count={totalPages}
-          variant="outlined"
-          shape="rounded"
-          page={currentPage}
-          onChange={handleChange}
+        <PC
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handleChange={handleChange}
         />
       </Container>
     </div>

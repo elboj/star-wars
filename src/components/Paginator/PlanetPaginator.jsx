@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import Planet from "../HomeDisplay/Planet/Planet";
-import { Pagination } from "@material-ui/lab";
+import PC from "./PaginationControl/PC";
 
 function PlanetPaginator({
   planet,
@@ -11,6 +11,7 @@ function PlanetPaginator({
   indexOfLastPost,
   postsPerPage,
   handleChange,
+  randNumb,
 }) {
   const currentPosts = planet.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(planet.length / postsPerPage);
@@ -23,17 +24,15 @@ function PlanetPaginator({
           {currentPosts.map((world, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <Planet {...world} />
+                <Planet {...world} randNumb={randNumb} />
               </Grid>
             );
           })}
         </Grid>
-        <Pagination
-          count={totalPages}
-          variant="outlined"
-          shape="rounded"
-          page={currentPage}
-          onChange={handleChange}
+        <PC
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handleChange={handleChange}
         />
       </Container>
     </div>

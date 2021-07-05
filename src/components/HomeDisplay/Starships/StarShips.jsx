@@ -19,7 +19,7 @@ function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
         <CardActionArea>
           <CardMedia
             className="ship-media"
-            image={ssImages[1].src}
+            image={ssImages[randNumb(6)].src}
             title={name}
           />
           <CardContent>
@@ -46,9 +46,9 @@ function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
               size="small"
               variant="contained"
               color="secondary"
-              // onClick={() => {
-              //   setRm(true);
-              // }}
+              onClick={() => {
+                setRm(true);
+              }}
             >
               Read more
             </Button>

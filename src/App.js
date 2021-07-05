@@ -2,6 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./styles.scss";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   HeroSection,
   HomeDisplay,
@@ -9,9 +10,8 @@ import {
   PeoplePaginator,
   PlanetPaginator,
 } from "./components/index";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Posts from "./components/Paginator/Posts";
-// import Footer from "./components/Footer/Footer";
+import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
   /**GLOBAL DEFINED STATES
@@ -27,6 +27,7 @@ const App = () => {
   const [hide, setHide] = useState(true);
   const [pg, setPG] = useState(false);
   const [pHide, setPHide] = useState(true);
+  const [rm, setRm] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
 
   //PAGINATION DATA
@@ -97,6 +98,7 @@ const App = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setRm(false);
     if (search.trim() === "") {
       console.log("no valid words");
       return;
@@ -117,6 +119,14 @@ const App = () => {
    * **********************************************************************
    */
 
+  //images random number
+  const randNumb = (x) => {
+    return Math.floor(Math.random() * x);
+  };
+
+  randNumb();
+  //
+
   if (isLoading) {
     return (
       <main>
@@ -127,91 +137,109 @@ const App = () => {
     );
   }
   return (
-    <div>
-      <main>
-        <Router>
-          <HeroSection
-            allData={allData}
-            setPHide={setPHide}
-            setPG={setPG}
-            setHide={setHide}
-            search={search}
-            setSearch={setSearch}
-            handleSearch={handleSearch}
+    <main>
+      <Router basename={"/star-wars"}>
+        <HeroSection
+          allData={allData}
+          setPHide={setPHide}
+          setPG={setPG}
+          setHide={setHide}
+          search={search}
+          setSearch={setSearch}
+          handleSearch={handleSearch}
+        />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={() =>
+              hide && (
+                <HomeDisplay
+                  starShip={starShip}
+                  people={people}
+                  randNumb={randNumb}
+                />
+              )
+            }
           />
-          <Switch>
-            <Route
-              path="/"
-              exact
-              component={() =>
-                hide && <HomeDisplay starShip={starShip} people={people} />
-              }
-            />
-            <Route
-              path="/people"
-              exact
-              component={() =>
-                pHide && (
-                  <PeoplePaginator
-                    people={people}
-                    setPeople={setPeople}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    indexOfLastPost={indexOfLastPost}
-                    indexOfFirstPost={indexOfFirstPost}
-                    postsPerPage={postsPerPage}
-                    handleChange={handleChange}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/ships"
-              exact
-              component={() =>
-                pHide && (
-                  <ShipPaginator
-                    starShip={starShip}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    indexOfLastPost={indexOfLastPost}
-                    indexOfFirstPost={indexOfFirstPost}
-                    postsPerPage={postsPerPage}
-                    handleChange={handleChange}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/planets"
-              exact
-              component={() =>
-                pHide && (
-                  <PlanetPaginator
-                    planet={planet}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    indexOfLastPost={indexOfLastPost}
-                    indexOfFirstPost={indexOfFirstPost}
-                    postsPerPage={postsPerPage}
-                    handleChange={handleChange}
-                  />
-                )
-              }
-            />
-          </Switch>
-        </Router>
-        {pg && (
-          <Posts
-            setHide={setHide}
-            setPG={setPG}
-            setPHide={setPHide}
-            searchResult={searchResult}
-            setSearch={setSearch}
+          <Route
+            path="/people"
+            exact
+            component={() =>
+              pHide && (
+                <PeoplePaginator
+                  people={people}
+                  setPeople={setPeople}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                  randNumb={randNumb}
+                />
+              )
+            }
           />
-        )}
-      </main>
-    </div>
+          <Route
+            path="/ships"
+            exact
+            component={() =>
+              pHide && (
+                <ShipPaginator
+                  starShip={starShip}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                  randNumb={randNumb}
+                  setRm={setRm}
+                />
+              )
+            }
+          />
+          <Route
+            path="/planets"
+            exact
+            component={() =>
+              pHide && (
+                <PlanetPaginator
+                  planet={planet}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                  randNumb={randNumb}
+                />
+              )
+            }
+          />
+        </Switch>
+        <Route
+          path="/readmore"
+          exact
+          component={() => rm && <StarShipsRM randNumb={randNumb} />}
+        />
+      </Router>
+      {pg && (
+        <Posts
+          setHide={setHide}
+          setPG={setPG}
+          setPHide={setPHide}
+          searchResult={searchResult}
+          setSearch={setSearch}
+        />
+      )}
+      <div>
+        <footer>
+          <p className="footer-text">Copyright &copy; Oluwatobi Adaja 2021</p>
+        </footer>
+      </div>
+    </main>
   );
 };
 
