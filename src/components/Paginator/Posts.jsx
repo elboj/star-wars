@@ -45,7 +45,6 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
             {searchResult.map((result, index) => {
               let title = Object.keys(result);
               let answer = Object.values(result);
-              const { name, model } = result;
               return (
                 <Grid key={index} item xs={12} sm={12} md={12}>
                   <Card className="card">
