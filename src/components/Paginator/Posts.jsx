@@ -53,7 +53,7 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
               let answer = Object.values(result);
               return (
                 <Grid key={index} item xs={12} sm={12} md={12}>
-                  <Card className={`card ${classes.planetCard}`}>
+                  <Card className={`card-post ${classes.planetCard}`}>
                     <CardActionArea>
                       <CardMedia
                         className={`planet-media ${classes.planetMedia}`}

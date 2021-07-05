@@ -14,20 +14,15 @@ import Posts from "./components/Paginator/Posts";
 import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
-  /**GLOBAL DEFINED STATES
-   * ALL STATES ARE USEFUL..
-   * DO NOT DELETE
-   */
-
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
   const [allData, setAllData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hide, setHide] = useState(true);
-  const [pg, setPG] = useState(false);
   const [pHide, setPHide] = useState(true);
   const [rm, setRm] = useState(true);
+  const [pg, setPG] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
 
   //PAGINATION DATA
@@ -37,6 +32,7 @@ const App = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
+  //FUNCTION THAT CHANGES PAGINATION PAGE
   const handleChange = (event, value) => {
     setCurrentPage(value);
   };
@@ -125,7 +121,6 @@ const App = () => {
   };
 
   randNumb();
-  //
 
   if (isLoading) {
     return (
