@@ -128,7 +128,7 @@ const App = () => {
   }
   return (
     <main>
-      <Router basename={"/starwars-project"}>
+      <Router basename={"/star-wars"}>
         <HeroSection
           allData={allData}
           setPHide={setPHide}
