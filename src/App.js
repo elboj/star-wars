@@ -127,91 +127,94 @@ const App = () => {
     );
   }
   return (
-    <div>
-      <main>
-        <Router>
-          <HeroSection
-            allData={allData}
-            setPHide={setPHide}
-            setPG={setPG}
-            setHide={setHide}
-            search={search}
-            setSearch={setSearch}
-            handleSearch={handleSearch}
+    <main>
+      <Router>
+        <HeroSection
+          allData={allData}
+          setPHide={setPHide}
+          setPG={setPG}
+          setHide={setHide}
+          search={search}
+          setSearch={setSearch}
+          handleSearch={handleSearch}
+        />
+        <Switch>
+          <Route
+            path="/home"
+            exact
+            component={() =>
+              hide && <HomeDisplay starShip={starShip} people={people} />
+            }
           />
-          <Switch>
-            <Route
-              path="/home"
-              exact
-              component={() =>
-                hide && <HomeDisplay starShip={starShip} people={people} />
-              }
-            />
-            <Route
-              path="/people"
-              exact
-              component={() =>
-                pHide && (
-                  <PeoplePaginator
-                    people={people}
-                    setPeople={setPeople}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    indexOfLastPost={indexOfLastPost}
-                    indexOfFirstPost={indexOfFirstPost}
-                    postsPerPage={postsPerPage}
-                    handleChange={handleChange}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/ships"
-              exact
-              component={() =>
-                pHide && (
-                  <ShipPaginator
-                    starShip={starShip}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    indexOfLastPost={indexOfLastPost}
-                    indexOfFirstPost={indexOfFirstPost}
-                    postsPerPage={postsPerPage}
-                    handleChange={handleChange}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/planets"
-              exact
-              component={() =>
-                pHide && (
-                  <PlanetPaginator
-                    planet={planet}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    indexOfLastPost={indexOfLastPost}
-                    indexOfFirstPost={indexOfFirstPost}
-                    postsPerPage={postsPerPage}
-                    handleChange={handleChange}
-                  />
-                )
-              }
-            />
-          </Switch>
-        </Router>
-        {pg && (
-          <Posts
-            setHide={setHide}
-            setPG={setPG}
-            setPHide={setPHide}
-            searchResult={searchResult}
-            setSearch={setSearch}
+          <Route
+            path="/people"
+            exact
+            component={() =>
+              pHide && (
+                <PeoplePaginator
+                  people={people}
+                  setPeople={setPeople}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                />
+              )
+            }
           />
-        )}
-      </main>
-    </div>
+          <Route
+            path="/ships"
+            exact
+            component={() =>
+              pHide && (
+                <ShipPaginator
+                  starShip={starShip}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                />
+              )
+            }
+          />
+          <Route
+            path="/planets"
+            exact
+            component={() =>
+              pHide && (
+                <PlanetPaginator
+                  planet={planet}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                />
+              )
+            }
+          />
+        </Switch>
+      </Router>
+      {pg && (
+        <Posts
+          setHide={setHide}
+          setPG={setPG}
+          setPHide={setPHide}
+          searchResult={searchResult}
+          setSearch={setSearch}
+        />
+      )}
+      <div>
+        <footer>
+          <p class="footer-text">Copyright &copy; Your Website 2020</p>
+        </footer>
+      </div>
+    </main>
   );
 };
 
