@@ -11,6 +11,7 @@ import {
   CardActionArea,
   Button,
 } from "@material-ui/core";
+import { ssImages } from "../../data/imgSS";
 import "../../scss/partials/_posts.scss";
 import useStyles from "./styles";
 
@@ -58,12 +59,16 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                       <CardMedia
                         className={`planet-media ${classes.planetMedia}`}
                         height="70"
-                        image={"https://source.unsplash.com/random"}
+                        image={ssImages[0].src}
                       />
                       <CardContent>
                         {title.map((key, index) => {
                           return (
-                            <Typography variant="subtitle2" gutterBottom>
+                            <Typography
+                              variant="subtitle2"
+                              gutterBottom
+                              key={index}
+                            >
                               {key}: {answer[index]}
                             </Typography>
                           );
