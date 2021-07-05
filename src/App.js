@@ -14,34 +14,44 @@ import Posts from "./components/Paginator/Posts";
 import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
-  /**GLOBAL DEFINED STATES
-   * ALL STATES ARE USEFUL..
-   * DO NOT DELETE
+  /**
+   * ****************************
+   * GENERAL USE STATES
+   * ****************************
    */
 
   const [people, setPeople] = useState([]);
   const [planet, setPlanet] = useState([]);
   const [starShip, setStarShip] = useState([]);
   const [allData, setAllData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hide, setHide] = useState(true);
-  const [pg, setPG] = useState(false);
-  const [pHide, setPHide] = useState(true);
-  const [rm, setRm] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
 
-  //PAGINATION DATA
+  const [isLoading, setIsLoading] = useState(true);
+  const [hide, setHide] = useState(true);
+  const [pHide, setPHide] = useState(true);
+  const [rm, setRm] = useState(true);
+  const [pg, setPG] = useState(false);
+
+  /**
+   * ****************************
+   * PAGINATION USE STATES
+   * ****************************
+   */
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPagePerPost] = useState(10);
+  const [postsPerPage] = useState(10);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  const handleChange = (event, value) => {
+  const handleChange = (value) => {
     setCurrentPage(value);
   };
 
-  //DATA FETCH
+  /***
+   * ***************************************************
+   * DATA FETCH
+   * ***************************************************
+   */
   const allDataFetch = () => {
     const peopleRequest = [];
     const shipRequest = [];
@@ -119,13 +129,14 @@ const App = () => {
    * **********************************************************************
    */
 
-  //images random number
+  /**
+   * *************************************************************************
+   * RANDOM IMAGE GENERATOR
+   * **************************************************************************
+   */
   const randNumb = (x) => {
     return Math.floor(Math.random() * x);
   };
-
-  randNumb();
-  //
 
   if (isLoading) {
     return (

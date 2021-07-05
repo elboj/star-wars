@@ -35,7 +35,7 @@ function People(props) {
               {props.birth_year}
             </Typography>
 
-            <Typography variant="body2" color="textSecondary" component="p">
+            {/* <Typography variant="body2" color="textSecondary" component="p">
               {show
                 ? peopleImage[0].info
                 : `${peopleImage[0].info.substring(0, 50)}...`}
@@ -46,7 +46,7 @@ function People(props) {
               >
                 {show ? "show less" : "  read more"}
               </Button>
-            </Typography>
+            </Typography> */}
           </CardContent>
         </div>
       </CardActionArea>

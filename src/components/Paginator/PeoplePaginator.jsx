@@ -7,7 +7,6 @@ import PC from "./PaginationControl/PC";
 
 function PeoplePaginator({
   people,
-  setPeople,
   currentPage,
   indexOfFirstPost,
   indexOfLastPost,
