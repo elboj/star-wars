@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
 import InputSearch from "../InputSearch/InputSearch";
-import Header from "../Drawer/Header";
+import Header from "../AppBar/Header";
 
 const HeroSection = ({
   setPHide,
