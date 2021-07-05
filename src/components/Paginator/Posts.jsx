@@ -43,6 +43,8 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
         {searchResult.length !== 0 && (
           <div>
             {searchResult.map((result, index) => {
+              let title = Object.keys(result);
+              let answer = Object.values(result);
               const { name, model } = result;
               return (
                 <Grid key={index} item xs={12} sm={12} md={12}>
@@ -54,12 +56,13 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                         image={"https://source.unsplash.com/random"}
                       />
                       <CardContent>
-                        <Typography gutterBottom variant="h6" gutterBottom>
-                          {name}
-                        </Typography>
-                        <Typography gutterBottom variant="h6" gutterBottom>
-                          {model}
-                        </Typography>
+                        {title.map((x, index) => {
+                          return (
+                            <Typography variant="subtitle2">
+                              {x}:{answer[index]}
+                            </Typography>
+                          );
+                        })}
                       </CardContent>
                     </CardActionArea>
                   </Card>
