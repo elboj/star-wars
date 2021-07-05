@@ -2,7 +2,7 @@ import React from "react";
 import { items } from "../../../data/imgPlanet";
 import Carousel from "react-material-ui-carousel";
 import autoBind from "auto-bind";
-import "../../../scss/_planetBP.scss";
+import "../../../scss/partials/_carousel.scss";
 import useStyles from "./styles";
 import {
   Card,

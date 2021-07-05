@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import { useState, useEffect } from "react";
-import "./styles.scss";
+import "./scss/styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   HeroSection,

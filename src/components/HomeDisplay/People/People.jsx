@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "../../../scss/_cardPeople.scss";
+import "../../../scss/partials/_cardPeople.scss";
 import { peopleImage } from "../../../data/imgPeople";
 import {
   Typography,

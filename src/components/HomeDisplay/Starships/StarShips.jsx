@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import { ssImages } from "../../../data/imgSS";
 import { Link, withRouter } from "react-router-dom";
-import "../../../scss/_starShip.scss";
+import "../../../scss/partials/_starShip.scss";
 
 function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
   return (
