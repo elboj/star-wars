@@ -6,7 +6,7 @@ import People from "../People/People";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../../Heading/Heading";
 
-const HomeDisplay = ({ starShip, people }) => {
+const HomeDisplay = ({ starShip, people, randNumb }) => {
   const classes = useStyles();
   const shipHomeDisplay = starShip.slice(0, 6);
   const peopleHomeDisplay = people.slice(0, 4);
@@ -18,7 +18,7 @@ const HomeDisplay = ({ starShip, people }) => {
           {shipHomeDisplay.map((ship, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={4}>
-                <StarShips {...ship} index={index} />
+                <StarShips {...ship} index={index} randNumb={randNumb} />
               </Grid>
             );
           })}
@@ -38,6 +38,7 @@ const HomeDisplay = ({ starShip, people }) => {
                   gender={gender}
                   birth_year={birth_year}
                   index={index}
+                  randNumb={randNumb}
                 />
               </Grid>
             );

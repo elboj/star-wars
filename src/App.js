@@ -117,6 +117,14 @@ const App = () => {
    * **********************************************************************
    */
 
+  //images random number
+  const randNumb = (x) => {
+    return Math.floor(Math.random() * x);
+  };
+
+  randNumb();
+  //
+
   if (isLoading) {
     return (
       <main>
@@ -143,7 +151,13 @@ const App = () => {
             path="/"
             exact
             component={() =>
-              hide && <HomeDisplay starShip={starShip} people={people} />
+              hide && (
+                <HomeDisplay
+                  starShip={starShip}
+                  people={people}
+                  randNumb={randNumb}
+                />
+              )
             }
           />
           <Route
@@ -160,6 +174,7 @@ const App = () => {
                   indexOfFirstPost={indexOfFirstPost}
                   postsPerPage={postsPerPage}
                   handleChange={handleChange}
+                  randNumb={randNumb}
                 />
               )
             }
@@ -177,6 +192,7 @@ const App = () => {
                   indexOfFirstPost={indexOfFirstPost}
                   postsPerPage={postsPerPage}
                   handleChange={handleChange}
+                  randNumb={randNumb}
                 />
               )
             }
@@ -194,6 +210,7 @@ const App = () => {
                   indexOfFirstPost={indexOfFirstPost}
                   postsPerPage={postsPerPage}
                   handleChange={handleChange}
+                  randNumb={randNumb}
                 />
               )
             }

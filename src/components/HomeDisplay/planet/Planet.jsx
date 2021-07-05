@@ -24,7 +24,7 @@ function Planet(props) {
             <CardActionArea>
               <CardMedia
                 className={`planet-media ${classes.planetCard}`}
-                image={items[0].Image}
+                image={items[props.randNumb(3)].Image}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="p">

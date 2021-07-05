@@ -17,6 +17,7 @@ function PeoplePaginator({
   indexOfLastPost,
   postsPerPage,
   handleChange,
+  randNumb,
 }) {
   const [peopleIndex, setPeopleIndex] = useState(people);
   const [hide, setHide] = useState(false);
@@ -43,7 +44,7 @@ function PeoplePaginator({
           {currentPosts.map((person, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <People {...person} />
+                <People {...person} randNumb={randNumb} />
               </Grid>
             );
           })}

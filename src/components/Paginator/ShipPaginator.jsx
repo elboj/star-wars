@@ -11,9 +11,17 @@ function ShipPaginator({
   indexOfLastPost,
   postsPerPage,
   handleChange,
+  randNumb,
 }) {
   const currentPosts = starShip.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(starShip.length / postsPerPage);
+
+  // const randNumb = () => {
+  //   return Math.floor(Math.random() * 5);
+  // };
+
+  // randNumb();
+  // console.log("seeing console");
 
   return (
     <div>
@@ -24,7 +32,12 @@ function ShipPaginator({
             const { name, model } = ship;
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <StarShips name={name} model={model} index={index} />
+                <StarShips
+                  name={name}
+                  model={model}
+                  index={index}
+                  randNumb={randNumb}
+                />
               </Grid>
             );
           })}

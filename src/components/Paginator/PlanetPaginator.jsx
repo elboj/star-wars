@@ -11,6 +11,7 @@ function PlanetPaginator({
   indexOfLastPost,
   postsPerPage,
   handleChange,
+  randNumb,
 }) {
   const currentPosts = planet.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(planet.length / postsPerPage);
@@ -23,7 +24,7 @@ function PlanetPaginator({
           {currentPosts.map((world, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={6}>
-                <Planet {...world} />
+                <Planet {...world} randNumb={randNumb} />
               </Grid>
             );
           })}

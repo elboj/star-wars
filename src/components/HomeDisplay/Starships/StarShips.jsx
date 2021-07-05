@@ -11,14 +11,15 @@ import {
 import { ssImages } from "../../../data/imgSS";
 import "../../../scss/_starShip.scss";
 
-function StarShips({ name, model, cargo_capacity, index }) {
+function StarShips({ name, model, cargo_capacity, index, randNumb }) {
+  console.log(randNumb);
   return (
     <div>
       <Card className="card">
         <CardActionArea>
           <CardMedia
             className="ship-media"
-            image={ssImages[2].src}
+            image={ssImages[randNumb(6)].src}
             title={name}
           />
           <CardContent>
