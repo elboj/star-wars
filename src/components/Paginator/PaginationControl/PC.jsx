@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
-import "../../../scss/_pc.scss";
+import "../../../scss/partials/_pc.scss";
 import useStyles from "./styles";
 
 function PC({ totalPages, currentPage, handleChange }) {

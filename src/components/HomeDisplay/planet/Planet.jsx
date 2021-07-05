@@ -1,8 +1,7 @@
 import React from "react";
 import { items } from "../../../data/imgPlanet";
-import "../../../scss/_planetBP.scss";
 import useStyles from "./styles";
-import "../../../scss/_planet.scss";
+import "../../../scss/partials/_planet.scss";
 import {
   Card,
   CardMedia,

@@ -11,7 +11,7 @@ import {
   CardActionArea,
   Button,
 } from "@material-ui/core";
-import "../../scss/_posts.scss";
+import "../../scss/partials/_posts.scss";
 import useStyles from "./styles";
 
 function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
