@@ -19,7 +19,7 @@ function People(props) {
     <Card className={`people-card ${classes.peopleCard}`}>
       <CardMedia
         className="cover"
-        image={peopleImage[props.randNumb(4)].src}
+        image={peopleImage[0].src}
         title={props.name}
       />
       <CardActionArea>
