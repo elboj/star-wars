@@ -23,7 +23,7 @@ function Planet(props) {
           <Card className={`planet-card ${classes.planetCard}`}>
             <CardActionArea>
               <CardMedia
-                className={`planet-media ${classes.planetCard}`}
+                className={`planet-media ${classes.planetMedia}`}
                 image={items[props.randNumb(3)].Image}
               />
               <CardContent>

@@ -8,10 +8,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  media: {
+  planetMedia: {
+    display: "flex",
+    boxShadow: "none",
     [theme.breakpoints.down("sm")]: {
       height: "290px !important",
-      border: "2px solid red",
     },
   },
 
