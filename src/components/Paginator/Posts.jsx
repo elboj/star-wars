@@ -1,9 +1,5 @@
 import React from "react";
-import People from "../HomeDisplay/People/People";
-import StarShips from "../HomeDisplay/Starships/StarShips";
-import Planet from "../HomeDisplay/Planet/Planet";
 import { Container, Grid } from "@material-ui/core";
-import unknown from "../../assets/unknown.png";
 import {
   Typography,
   Card,
@@ -29,15 +25,13 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                   <Typography variant="h5">Search Results</Typography>
                   <Typography>{searchResult.length} result found</Typography>
                 </CardContent>
-                <CardMedia
-                  className="cover"
-                  height="70"
-                  image={
-                    searchResult.length > 0
-                      ? "https://source.unsplash.com/random"
-                      : null
-                  }
-                />
+                {searchResult.length && (
+                  <CardMedia
+                    className="cover"
+                    height="70"
+                    image={"https://source.unsplash.com/random"}
+                  />
+                )}
                 {searchResult.map((result, index) => {
                   let title = Object.keys(result);
                   let answer = Object.values(result);
