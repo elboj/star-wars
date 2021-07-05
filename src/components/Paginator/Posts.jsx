@@ -15,57 +15,34 @@ import useStyles from "../HomeDisplay/People/styles";
 function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
   const classes = useStyles();
   return (
-    <div>
-      <Container maxWidth="md" className="post-container" justify="center">
-        <Grid container justify="center">
-          <Grid item xs={12} sm={12} md={12}>
-            <Card className="card">
-              <CardActionArea>
-                <CardContent>
-                  <Typography variant="h5">Search Results</Typography>
-                  <Typography>{searchResult.length} result found</Typography>
-                </CardContent>
-                {searchResult.length && (
-                  <CardMedia
-                    className="cover"
-                    height="70"
-                    image={"https://source.unsplash.com/random"}
-                  />
-                )}
-                {searchResult.map((result, index) => {
-                  let title = Object.keys(result);
-                  let answer = Object.values(result);
-                  return title.map((x, index) => {
-                    return (
-                      <CardContent>
-                        <Typography variant="subtitle1">
-                          {x}:{answer[index]}
-                        </Typography>
-                      </CardContent>
-                    );
-                  });
-                })}
-              </CardActionArea>
-              <CardActions>
-                <Button
-                  size="large"
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => {
-                    setHide(true);
-                    setPHide(true);
-                    setPG(false);
-                    setSearch("");
-                  }}
-                >
-                  Back to Home
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-    </div>
+    <Container maxWidth="md" className="post-container" justify="center">
+      <Grid container justify="center">
+        {searchResult.length === 0 && (
+          <div>
+            <Typography variant="h5">Search Results</Typography>
+            <Typography variant="h5">
+              {searchResult.length} result found
+            </Typography>
+            <CardActions>
+              <Button
+                size="large"
+                variant="contained"
+                color="secondary"
+                onClick={() => {
+                  setHide(true);
+                  setPHide(true);
+                  setPG(false);
+                  setSearch("");
+                }}
+              >
+                Back to Home
+              </Button>
+            </CardActions>
+          </div>
+        )}
+        <div></div>
+      </Grid>
+    </Container>
   );
 }
 
