@@ -228,7 +228,7 @@ const App = () => {
       )}
       <div>
         <footer>
-          <p class="footer-text">Copyright &copy; Your Website 2020</p>
+          <p class="footer-text">Copyright &copy; Oluwatobi Adaja 2021</p>
         </footer>
       </div>
     </main>
