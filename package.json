@@ -1,7 +1,7 @@
 {
   "name": "starwars-project",
   "version": "0.1.0",
-  "homepage": "https://elboj.github.io/star-wars",
+  "homepage": "https://elboj.github.io/star-wars/home",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
