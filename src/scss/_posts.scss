@@ -9,11 +9,12 @@
 
 .card {
   @include flex-column;
+  width: 300px;
   height: 100%;
 }
 
-.cover {
-  height: 60px;
-  padding-top: 40.25%; // 16:9, 56.25
+.planet-media {
+  height: 100px;
+  padding-top: 80.25%; // 16:9, 56.25
   margin-top: 30;
 }

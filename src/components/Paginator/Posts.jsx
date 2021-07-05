@@ -40,7 +40,34 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
             </CardActions>
           </div>
         )}
-        <div></div>
+        {searchResult.length !== 0 && (
+          <div>
+            {searchResult.map((result, index) => {
+              const { name, model } = result;
+              return (
+                <Grid key={index} item xs={12} sm={12} md={12}>
+                  <Card className="card">
+                    <CardActionArea>
+                      <CardMedia
+                        className="planet-media"
+                        height="70"
+                        image={"https://source.unsplash.com/random"}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h6" gutterBottom>
+                          {name}
+                        </Typography>
+                        <Typography gutterBottom variant="h6" gutterBottom>
+                          {model}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+              );
+            })}
+          </div>
+        )}
       </Grid>
     </Container>
   );
