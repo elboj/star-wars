@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect, useReducer } from "react";
 
 import {
   Container,
@@ -15,7 +16,8 @@ import { ssImages } from "../../data/imgSS";
 import "../../scss/partials/_posts.scss";
 import useStyles from "./styles";
 
-function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
+function Posts({ searchResult, backHome }) {
+  console.log(searchResult);
   const classes = useStyles();
   return (
     <Container maxWidth="md" className="post-container" justify="center">
@@ -31,12 +33,7 @@ function Posts({ setSearch, setHide, setPG, setPHide, searchResult }) {
                 size="large"
                 variant="contained"
                 color="secondary"
-                onClick={() => {
-                  setHide(true);
-                  setPHide(true);
-                  setPG(false);
-                  setSearch("");
-                }}
+                onClick={backHome}
               >
                 Back to Home
               </Button>

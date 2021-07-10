@@ -12,6 +12,8 @@ const HeroSection = ({
   search,
   setSearch,
   handleSearch,
+  paginationHidden,
+  homeDisplay,
 }) => {
   return (
     <section
@@ -19,7 +21,7 @@ const HeroSection = ({
       style={{ backgroundImage: `url(${hero})` }}
     >
       <div className="main-hero-app-bar">
-        <Header setPHide={setPHide} setPG={setPG} setHide={setHide} />
+        <Header paginationHidden homeDisplay />
       </div>
       <div className="main-hero-content">
         <article className="mhc-article">

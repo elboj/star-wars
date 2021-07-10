@@ -1,8 +1,10 @@
 /* eslint-disable */
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import "./scss/styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { reducer } from "./reducer";
+//import { defaultState } from "./defaultState";
 import {
   HeroSection,
   HomeDisplay,
@@ -13,17 +15,22 @@ import {
 import Posts from "./components/Paginator/Posts";
 import StarShipsRM from "./components/Paginator/StarShipsRM";
 
+const defaultState = {
+  people: [],
+  planet: [],
+  starShip: [],
+  allData: [],
+  isLoading: true,
+  pHide: false,
+  pg: false,
+  hide: true,
+  searchResult: [],
+};
+
 const App = () => {
-  const [people, setPeople] = useState([]);
-  const [planet, setPlanet] = useState([]);
-  const [starShip, setStarShip] = useState([]);
-  const [allData, setAllData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hide, setHide] = useState(true);
-  const [pHide, setPHide] = useState(true);
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  console.log(defaultState);
   const [rm, setRm] = useState(true);
-  const [pg, setPG] = useState(false);
-  const [searchResult, setSearchResult] = useState([]);
 
   //PAGINATION DATA
   const [search, setSearch] = useState("");
@@ -62,11 +69,7 @@ const App = () => {
       .then((data) => {
         const totalList = [];
         data.forEach((d) => totalList.push(...d.results));
-        setAllData(totalList);
-        setPlanet(totalList.slice(0, 39));
-        setStarShip(totalList.slice(40, 75));
-        setPeople(totalList.slice(76));
-        setIsLoading(false);
+        dispatch({ type: "DATA_FETCHED", payload: totalList });
       });
   };
 
@@ -96,20 +99,15 @@ const App = () => {
     e.preventDefault();
     setRm(false);
     if (search.trim() === "") {
-      console.log("no valid words");
       return;
     }
-    setSearchResult(
-      allData.filter(
-        (data) =>
-          data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
-          checkName(data.name.substring(0, 3), search.substring(0, 3))
-      )
+    const newData = state.allData.filter(
+      (data) =>
+        data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
+        checkName(data.name.substring(0, 3), search.substring(0, 3))
     );
 
-    setHide(false);
-    setPHide(false);
-    setPG(true);
+    dispatch({ type: "SEARCH_DATA", payload: newData });
   };
   /************************************************************************
    * **********************************************************************
@@ -122,7 +120,7 @@ const App = () => {
 
   randNumb();
 
-  if (isLoading) {
+  if (state.isLoading) {
     return (
       <main>
         <div className="fallback-container">
@@ -135,48 +133,48 @@ const App = () => {
     <main>
       <Router basename={"/star-wars"}>
         <HeroSection
-          allData={allData}
-          setPHide={setPHide}
-          setPG={setPG}
-          setHide={setHide}
+          //allData={state.allData}
           search={search}
           setSearch={setSearch}
           handleSearch={handleSearch}
+          paginationHidden={() => dispatch({ type: "PAGINATION_HIDDEN" })}
+          homeDisplay={() => dispatch({ type: "HOME_DISPLAY" })}
         />
         <Switch>
           <Route
             path="/"
             exact
             component={() =>
-              hide && (
+              state.hide && (
                 <HomeDisplay
-                  starShip={starShip}
-                  people={people}
+                  starShip={state.starShip}
+                  people={state.people}
                   randNumb={randNumb}
                 />
               )
             }
           />
-          <Route
+          {/* <Route
             path="/people"
             exact
             component={() =>
               pHide && (
-                <PeoplePaginator
-                  people={people}
-                  setPeople={setPeople}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  indexOfLastPost={indexOfLastPost}
-                  indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={postsPerPage}
-                  handleChange={handleChange}
-                  randNumb={randNumb}
-                />
+                
               )
             }
+          /> */}
+          <PeoplePaginator
+            people={state.people}
+            // setPeople={setPeople}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            indexOfLastPost={indexOfLastPost}
+            indexOfFirstPost={indexOfFirstPost}
+            postsPerPage={postsPerPage}
+            handleChange={handleChange}
+            randNumb={randNumb}
           />
-          <Route
+          {/* <Route
             path="/ships"
             exact
             component={() =>
@@ -212,21 +210,18 @@ const App = () => {
                 />
               )
             }
-          />
+          /> */}
         </Switch>
-        <Route
+        {/* <Route
           path="/readmore"
           exact
           component={() => rm && <StarShipsRM randNumb={randNumb} />}
-        />
+        /> */}
       </Router>
-      {pg && (
+      {state.pg && (
         <Posts
-          setHide={setHide}
-          setPG={setPG}
-          setPHide={setPHide}
-          searchResult={searchResult}
-          setSearch={setSearch}
+          searchResult={state.searchResult}
+          backHome={() => dispatch({ type: "NO_RESULT" })}
         />
       )}
       <div>
