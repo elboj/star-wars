@@ -29,15 +29,15 @@ function Header({ setHide, paginationHidden, homeDisplay }) {
             </Typography>
           </Link>
           <div className="grow"></div>
-          {/* <Link to="/people"> */}
-          <Typography
-            className="link-text"
-            variant="subtitle2"
-            onClick={paginationHidden}
-          >
-            People
-          </Typography>
-          {/* </Link> */}
+          <Link to="/people">
+            <Typography
+              className="link-text"
+              variant="subtitle2"
+              onClick={paginationHidden}
+            >
+              People
+            </Typography>
+          </Link>
           <Link to="/ships">
             <Typography
               variant="subtitle2"

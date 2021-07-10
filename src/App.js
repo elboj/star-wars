@@ -4,6 +4,7 @@ import { useState, useEffect, useReducer } from "react";
 import "./scss/styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { reducer } from "./reducer";
+import Header from "./components/AppBar/Header";
 //import { defaultState } from "./defaultState";
 import {
   HeroSection,
@@ -154,33 +155,33 @@ const App = () => {
               )
             }
           />
-          {/* <Route
+          <Route
             path="/people"
             exact
             component={() =>
-              pHide && (
-                
+              state.pHide && (
+                <PeoplePaginator
+                  people={state.people}
+                  // setPeople={setPeople}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  indexOfLastPost={indexOfLastPost}
+                  indexOfFirstPost={indexOfFirstPost}
+                  postsPerPage={postsPerPage}
+                  handleChange={handleChange}
+                  randNumb={randNumb}
+                />
               )
             }
-          /> */}
-          <PeoplePaginator
-            people={state.people}
-            // setPeople={setPeople}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            indexOfLastPost={indexOfLastPost}
-            indexOfFirstPost={indexOfFirstPost}
-            postsPerPage={postsPerPage}
-            handleChange={handleChange}
-            randNumb={randNumb}
           />
-          {/* <Route
+
+          <Route
             path="/ships"
             exact
             component={() =>
-              pHide && (
+              state.pHide && (
                 <ShipPaginator
-                  starShip={starShip}
+                  starShip={state.starShip}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
                   indexOfLastPost={indexOfLastPost}
@@ -197,9 +198,9 @@ const App = () => {
             path="/planets"
             exact
             component={() =>
-              pHide && (
+              state.pHide && (
                 <PlanetPaginator
-                  planet={planet}
+                  planet={state.planet}
                   currentPage={currentPage}
                   setCurrentPage={setCurrentPage}
                   indexOfLastPost={indexOfLastPost}
@@ -210,7 +211,7 @@ const App = () => {
                 />
               )
             }
-          /> */}
+          />
         </Switch>
         {/* <Route
           path="/readmore"

@@ -4,6 +4,8 @@ import logo from "../../assets/logo.png";
 import hero from "../../assets/hero.jpg";
 import InputSearch from "../InputSearch/InputSearch";
 import Header from "../AppBar/Header";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { Link, withRouter } from "react-router-dom";
 
 const HeroSection = ({
   setPHide,
@@ -21,7 +23,45 @@ const HeroSection = ({
       style={{ backgroundImage: `url(${hero})` }}
     >
       <div className="main-hero-app-bar">
-        <Header paginationHidden homeDisplay />
+        <div>
+          <AppBar position="fixed" className="app-bar" color="secondary">
+            <Toolbar>
+              <Link to="/">
+                <Typography onClick={homeDisplay}>
+                  <img src={logo} alt="star-wars" height="35px" />
+                </Typography>
+              </Link>
+              <div className="grow"></div>
+              <Link to="/people">
+                <Typography
+                  className="link-text"
+                  variant="subtitle2"
+                  onClick={paginationHidden}
+                >
+                  People
+                </Typography>
+              </Link>
+              <Link to="/ships">
+                <Typography
+                  variant="subtitle2"
+                  className="link-text"
+                  onClick={paginationHidden}
+                >
+                  Ships
+                </Typography>
+              </Link>
+              <Link to="/planets">
+                <Typography
+                  variant="subtitle2"
+                  className="link-text"
+                  onClick={paginationHidden}
+                >
+                  Planets
+                </Typography>
+              </Link>
+            </Toolbar>
+          </AppBar>
+        </div>
       </div>
       <div className="main-hero-content">
         <article className="mhc-article">
@@ -45,4 +85,4 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection;
+export default withRouter(HeroSection);
