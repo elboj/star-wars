@@ -4,7 +4,6 @@ import { useState, useEffect, useReducer } from "react";
 import "./scss/styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { reducer } from "./reducer";
-import { useHistory } from "react-router";
 import { defaultState } from "./defaultState";
 import {
   HeroSection,
