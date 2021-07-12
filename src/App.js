@@ -24,6 +24,7 @@ const App = () => {
 
   //PAGINATION DATA
   const [search, setSearch] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
   const [searchData, setSearchData] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastPost = currentPage * state.postsPerPage;
@@ -68,39 +69,6 @@ const App = () => {
     allDataFetch();
   }, []);
 
-  /**
-   * *************************************************************************
-   * INTELLIGENT REGEX SEARXH.. THIS FUNCTIONALITY PRODUCES THE CLOSEST RESULTS
-   * TO THE USER INPUT IF THERE'S NO EXACT MATCH
-   * **************************************************************************
-   */
-
-  const checkName = (name, str) => {
-    var pattern = str
-      .split("")
-      .map((x) => {
-        return `(?=.*${x})`;
-      })
-      .join("");
-    var regex = new RegExp(`${pattern}`, "g");
-    return name.match(regex);
-  };
-
-  const handleSearch = (e) => {
-    console.log("handle search working");
-    //  const newData = state.allData.filter(
-    //    (data) =>
-    //      data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
-    //      checkName(data.name.substring(0, 3), search.substring(0, 3))
-    //  );
-
-    //  dispatch({ type: "SEARCH_DATA", payload: newData });
-  };
-
-  /************************************************************************
-   * **********************************************************************
-   */
-
   //images random number
   const randNumb = (x) => {
     return Math.floor(Math.random() * x);
@@ -121,10 +89,6 @@ const App = () => {
     <main>
       <Router basename={"/star-wars"}>
         <HeroSection
-          //allData={state.allData}
-          search={search}
-          setSearch={setSearch}
-          handleSearch={handleSearch}
           paginationHidden={() => dispatch({ type: "PAGINATION_HIDDEN" })}
           homeDisplay={() => dispatch({ type: "HOME_DISPLAY" })}
         />
@@ -132,6 +96,7 @@ const App = () => {
           search={search}
           setSearch={setSearch}
           searchData={searchData}
+          setSearchResult={setSearchResult}
         />
         <Switch>
           <Route
@@ -197,12 +162,7 @@ const App = () => {
           />
           <Route
             path="/posts"
-            component={() => (
-              <Posts
-                searchResult={state.searchResult}
-                backHome={() => dispatch({ type: "NO_RESULT" })}
-              />
-            )}
+            component={() => <Posts searchResult={searchResult} />}
           />
           <Route component={() => <NotFound />} />
         </Switch>
@@ -212,12 +172,6 @@ const App = () => {
           component={() => rm && <StarShipsRM randNumb={randNumb} />}
         /> */}
       </Router>
-      {state.pg && (
-        <Posts
-          searchResult={state.searchResult}
-          backHome={() => dispatch({ type: "NO_RESULT" })}
-        />
-      )}
       <div>
         <footer>
           <p className="footer-text">Copyright &copy; Oluwatobi Adaja 2021</p>

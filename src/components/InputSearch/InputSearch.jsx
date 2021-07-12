@@ -3,10 +3,16 @@ import { GoSearch } from "react-icons/go";
 import { useHistory } from "react-router";
 import { useGlobalContext } from "../../context";
 
-function InputSearch({ search, setSearch, handleSearch, searchData }) {
+function InputSearch({
+  search,
+  setSearch,
+  handleSearch,
+  searchData,
+  setSearchResult,
+}) {
   // const data = useGlobalContext();
   // console.log(searchData);
-  // const history = useHistory();
+  const history = useHistory();
 
   const checkName = (name, str) => {
     var pattern = str
@@ -29,8 +35,8 @@ function InputSearch({ search, setSearch, handleSearch, searchData }) {
         data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
         checkName(data.name.substring(0, 3), search.substring(0, 3))
     );
-
-    dispatch({ type: "SEARCH_DATA", payload: newData });
+    setSearchResult(newData);
+    history.push("/posts");
   };
 
   return (

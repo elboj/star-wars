@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useReducer } from "react";
+import { Link, withRouter } from "react-router-dom";
 
 import {
   Container,
@@ -16,7 +17,7 @@ import { ssImages } from "../../data/imgSS";
 import "../../scss/partials/_posts.scss";
 import useStyles from "./styles";
 
-function Posts({ searchResult, backHome }) {
+function Posts({ searchResult }) {
   console.log(searchResult);
   const classes = useStyles();
   return (
@@ -29,14 +30,11 @@ function Posts({ searchResult, backHome }) {
               {searchResult.length} result found
             </Typography>
             <CardActions>
-              <Button
-                size="large"
-                variant="contained"
-                color="secondary"
-                onClick={backHome}
-              >
-                Back to Home
-              </Button>
+              <Link to="/">
+                <Button size="large" variant="contained" color="secondary">
+                  Back to Home
+                </Button>
+              </Link>
             </CardActions>
           </div>
         )}
@@ -83,4 +81,4 @@ function Posts({ searchResult, backHome }) {
   );
 }
 
-export default Posts;
+export default withRouter(Posts);

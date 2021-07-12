@@ -12,38 +12,11 @@ export const reducer = (state, action) => {
       isLoading: false,
     };
   }
-  // if (action.type === "PAGINATION_HIDDEN") {
-  //   return {
-  //     ...state,
-  //     pHide: true,
-  //     pg: false,
-  //   };
-  // }
   if (action.type === "HOME_DISPLAY") {
     return {
       ...state,
       hide: true,
       pg: false,
-    };
-  }
-  if (action.type === "NO_RESULT") {
-    return {
-      ...state,
-      pHide: true,
-      pg: false,
-      hide: true,
-    };
-  }
-
-  if (action.type === "SEARCH_DATA") {
-    const newData = action.payload;
-    console.log(action.payload);
-    return {
-      ...state,
-      searchResult: [...newData],
-      hide: false,
-      pHide: false,
-      pg: true,
     };
   }
   throw new Error("no matching action type");

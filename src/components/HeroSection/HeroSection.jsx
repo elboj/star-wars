@@ -5,7 +5,7 @@ import hero from "../../assets/hero.jpg";
 import InputSearch from "../InputSearch/InputSearch";
 import Header from "../AppBar/Header";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { Link, withRouter, Router } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const HeroSection = ({
   setPHide,
