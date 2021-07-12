@@ -20,12 +20,10 @@ import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  const [rm, setRm] = useState(true);
 
   //PAGINATION DATA
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  const [searchData, setSearchData] = useState("");
   const [shipName, setShipName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastPost = currentPage * state.postsPerPage;
@@ -34,6 +32,7 @@ const App = () => {
   //FUNCTION THAT CHANGES PAGINATION PAGE
   const handleChange = (event, value) => {
     setCurrentPage(value);
+    console.log(event);
   };
 
   //DATA FETCH
@@ -61,7 +60,6 @@ const App = () => {
       .then((data) => {
         const totalList = [];
         data.forEach((d) => totalList.push(...d.results));
-        setSearchData(totalList);
         dispatch({ type: "DATA_FETCHED", payload: totalList });
       });
   };
@@ -74,8 +72,6 @@ const App = () => {
   const randNumb = (x) => {
     return Math.floor(Math.random() * x);
   };
-
-  randNumb();
 
   if (state.isLoading) {
     return (
@@ -93,24 +89,22 @@ const App = () => {
         <InputSearch
           search={search}
           setSearch={setSearch}
-          searchData={searchData}
           setSearchResult={setSearchResult}
+          allData={state.allData}
         />
         <HeroSection />
         <Switch>
           <Route
             path="/"
             exact
-            component={() =>
-              state.hide && (
-                <HomeDisplay
-                  starShip={state.starShip}
-                  people={state.people}
-                  randNumb={randNumb}
-                  setShipName={setShipName}
-                />
-              )
-            }
+            component={() => (
+              <HomeDisplay
+                starShip={state.starShip}
+                people={state.people}
+                randNumb={state.randNumb}
+                setShipName={setShipName}
+              />
+            )}
           />
           <Route
             path="/people"
@@ -124,7 +118,7 @@ const App = () => {
                 indexOfFirstPost={indexOfFirstPost}
                 postsPerPage={state.postsPerPage}
                 handleChange={handleChange}
-                randNumb={randNumb}
+                randNumb={state.randNumb}
               />
             )}
           />
@@ -140,7 +134,7 @@ const App = () => {
                 indexOfFirstPost={indexOfFirstPost}
                 postsPerPage={state.postsPerPage}
                 handleChange={handleChange}
-                randNumb={randNumb}
+                randNumb={state.randNumb}
                 setShipName={setShipName}
               />
             )}
@@ -156,7 +150,7 @@ const App = () => {
                 indexOfFirstPost={indexOfFirstPost}
                 postsPerPage={state.postsPerPage}
                 handleChange={handleChange}
-                randNumb={randNumb}
+                randNumb={state.randNumb}
               />
             )}
           />
@@ -167,7 +161,7 @@ const App = () => {
           <Route
             path="/readmore"
             component={() => (
-              <StarShipsRM randNumb={randNumb} shipName={shipName} />
+              <StarShipsRM randNumb={state.randNumb} shipName={shipName} />
             )}
           />
           <Route component={() => <NotFound />} />

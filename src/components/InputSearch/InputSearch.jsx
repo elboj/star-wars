@@ -3,7 +3,7 @@ import { GoSearch } from "react-icons/go";
 import { useHistory } from "react-router";
 import "../../scss/partials/_input.scss";
 
-function InputSearch({ search, setSearch, searchData, setSearchResult }) {
+function InputSearch({ search, setSearch, setSearchResult, allData }) {
   const history = useHistory();
 
   const checkName = (name, str) => {
@@ -22,13 +22,14 @@ function InputSearch({ search, setSearch, searchData, setSearchResult }) {
     if (search.trim() === "") {
       throw new Error("invalid string");
     }
-    const newData = searchData.filter(
+    const newData = allData.filter(
       (data) =>
         data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
         checkName(data.name.substring(0, 3), search.substring(0, 3))
     );
     setSearchResult(newData);
     history.push("/posts");
+    setSearch("");
   };
 
   return (

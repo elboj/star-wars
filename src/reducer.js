@@ -10,6 +10,9 @@ export const reducer = (state, action) => {
       planet: newPlanet,
       starShip: newStarShips,
       isLoading: false,
+      randNumb: function (x) {
+        return Math.floor(Math.random() * x);
+      },
     };
   }
   if (action.type === "HOME_DISPLAY") {
