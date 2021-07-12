@@ -6,7 +6,7 @@ import People from "../People/People";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../../Heading/Heading";
 
-const HomeDisplay = ({ starShip, people, randNumb }) => {
+const HomeDisplay = ({ starShip, people, randNumb, setShipName }) => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -21,7 +21,12 @@ const HomeDisplay = ({ starShip, people, randNumb }) => {
           {shipHomeDisplay.map((ship, index) => {
             return (
               <Grid key={index} item xs={12} sm={6} md={4}>
-                <StarShips {...ship} index={index} randNumb={randNumb} />
+                <StarShips
+                  {...ship}
+                  index={index}
+                  randNumb={randNumb}
+                  setShipName={setShipName}
+                />
               </Grid>
             );
           })}

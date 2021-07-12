@@ -13,9 +13,10 @@ import {
   PlanetPaginator,
 } from "./components/index";
 import InputSearch from "./components/InputSearch/InputSearch";
+import Header from "./components/AppBar/Header";
 import Posts from "./components/Paginator/Posts";
 import NotFound from "./NotFound";
-// import StarShipsRM from "./components/Paginator/StarShipsRM";
+import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -25,6 +26,7 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [searchData, setSearchData] = useState("");
+  const [shipName, setShipName] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastPost = currentPage * state.postsPerPage;
   const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
@@ -87,16 +89,14 @@ const App = () => {
   return (
     <main>
       <Router basename={"/star-wars"}>
-        <HeroSection
-          paginationHidden={() => dispatch({ type: "PAGINATION_HIDDEN" })}
-          homeDisplay={() => dispatch({ type: "HOME_DISPLAY" })}
-        />
+        <Header />
         <InputSearch
           search={search}
           setSearch={setSearch}
           searchData={searchData}
           setSearchResult={setSearchResult}
         />
+        <HeroSection />
         <Switch>
           <Route
             path="/"
@@ -107,6 +107,7 @@ const App = () => {
                   starShip={state.starShip}
                   people={state.people}
                   randNumb={randNumb}
+                  setShipName={setShipName}
                 />
               )
             }
@@ -140,7 +141,7 @@ const App = () => {
                 postsPerPage={state.postsPerPage}
                 handleChange={handleChange}
                 randNumb={randNumb}
-                setRm={setRm}
+                setShipName={setShipName}
               />
             )}
           />
@@ -163,13 +164,14 @@ const App = () => {
             path="/posts"
             component={() => <Posts searchResult={searchResult} />}
           />
+          <Route
+            path="/readmore"
+            component={() => (
+              <StarShipsRM randNumb={randNumb} shipName={shipName} />
+            )}
+          />
           <Route component={() => <NotFound />} />
         </Switch>
-        {/* <Route
-          path="/readmore"
-          exact
-          component={() => rm && <StarShipsRM randNumb={randNumb} />}
-        /> */}
       </Router>
       <div>
         <footer>

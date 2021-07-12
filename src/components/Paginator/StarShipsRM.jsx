@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Grid,
@@ -11,7 +11,10 @@ import {
 import { ssImages } from "../../data/imgSS";
 import useStyles from "../Paginator/styles";
 
-function StarShipsRM({ randNumb }) {
+function StarShipsRM({ randNumb, shipName }) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const classes = useStyles();
   return (
     <Container maxWidth="md" className="post-container" justify="center">
@@ -25,7 +28,7 @@ function StarShipsRM({ randNumb }) {
             />
           </CardActionArea>
           <CardContent>
-            <Typography variant="h5">Search Results</Typography>
+            <Typography variant="h5">{shipName}</Typography>
             <Typography variant="body2" align="justify">
               A powerful pursuit craft made famous by Jango Fett in the days of
               the Republic, this ship was inherited by Boba Fett for his career

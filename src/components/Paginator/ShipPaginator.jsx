@@ -12,7 +12,7 @@ function ShipPaginator({
   postsPerPage,
   handleChange,
   randNumb,
-  setRm,
+  setShipName,
 }) {
   useEffect(() => {
     window.scroll(0, 0);
@@ -34,7 +34,7 @@ function ShipPaginator({
                   model={model}
                   index={index}
                   randNumb={randNumb}
-                  setRm={setRm}
+                  setShipName={setShipName}
                 />
               </Grid>
             );

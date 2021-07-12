@@ -12,10 +12,17 @@ import { ssImages } from "../../../data/imgSS";
 import { Link, withRouter } from "react-router-dom";
 import "../../../scss/partials/_starShip.scss";
 
-function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
+function StarShips({
+  name,
+  model,
+  cargo_capacity,
+  index,
+  randNumb,
+  setShipName,
+}) {
   return (
     <div>
-      <Card className="card">
+      <Card className="card" key={index}>
         <CardActionArea>
           <CardMedia
             className="ship-media"
@@ -32,7 +39,12 @@ function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
             <Typography variant="subtitle2" gutterBottom>
               cargo capacity:{cargo_capacity}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              align="justify"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
               atque pariatur delectus deserunt quis facilis, magnam earum sed
               reiciendis esse ab nesciunt voluptate. Numquam minima commodi
@@ -47,7 +59,7 @@ function StarShips({ name, model, cargo_capacity, randNumb, setRm }) {
               variant="contained"
               color="secondary"
               onClick={() => {
-                setRm(true);
+                setShipName(name);
               }}
             >
               Read more

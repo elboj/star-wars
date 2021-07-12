@@ -1,17 +1,9 @@
 import React from "react";
 import { GoSearch } from "react-icons/go";
 import { useHistory } from "react-router";
-import { useGlobalContext } from "../../context";
+import "../../scss/partials/_input.scss";
 
-function InputSearch({
-  search,
-  setSearch,
-  handleSearch,
-  searchData,
-  setSearchResult,
-}) {
-  // const data = useGlobalContext();
-  // console.log(searchData);
+function InputSearch({ search, setSearch, searchData, setSearchResult }) {
   const history = useHistory();
 
   const checkName = (name, str) => {
@@ -40,23 +32,25 @@ function InputSearch({
   };
 
   return (
-    <div className="main-hero-input">
-      <form className="mhi-form" onSubmit={handleSearched}>
-        <button type="submit" className="mhi-button">
-          <GoSearch size="1.2rem" />
-        </button>
-        <input
-          required
-          type="text"
-          name="myInput"
-          className="mhi-field"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-      </form>
-    </div>
+    <section className="input-container">
+      <div className="main-hero-input">
+        <form className="mhi-form" onSubmit={handleSearched}>
+          <button type="submit" className="mhi-button">
+            <GoSearch size="1.2rem" />
+          </button>
+          <input
+            required
+            type="text"
+            name="myInput"
+            className="mhi-field"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </form>
+      </div>
+    </section>
   );
 }
 
