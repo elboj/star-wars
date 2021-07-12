@@ -24,6 +24,7 @@ const App = () => {
 
   //PAGINATION DATA
   const [search, setSearch] = useState("");
+  const [searchData, setSearchData] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const indexOfLastPost = currentPage * state.postsPerPage;
   const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
@@ -58,6 +59,7 @@ const App = () => {
       .then((data) => {
         const totalList = [];
         data.forEach((d) => totalList.push(...d.results));
+        setSearchData(totalList);
         dispatch({ type: "DATA_FETCHED", payload: totalList });
       });
   };
@@ -126,7 +128,11 @@ const App = () => {
           paginationHidden={() => dispatch({ type: "PAGINATION_HIDDEN" })}
           homeDisplay={() => dispatch({ type: "HOME_DISPLAY" })}
         />
-        <InputSearch search={search} setSearch={setSearch} />
+        <InputSearch
+          search={search}
+          setSearch={setSearch}
+          searchData={searchData}
+        />
         <Switch>
           <Route
             path="/"
