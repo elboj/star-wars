@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import People from "../HomeDisplay/People/People";
@@ -15,6 +15,9 @@ function PeoplePaginator({
   handleChange,
   randNumb,
 }) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const currentPosts = people.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(people.length / postsPerPage);
 

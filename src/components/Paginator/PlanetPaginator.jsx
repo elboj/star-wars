@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import Planet from "../HomeDisplay/Planet/Planet";
@@ -13,6 +13,9 @@ function PlanetPaginator({
   handleChange,
   randNumb,
 }) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const currentPosts = planet.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(planet.length / postsPerPage);
 

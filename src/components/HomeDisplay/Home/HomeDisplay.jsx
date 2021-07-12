@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useStyles from "./styles";
 import StarShips from "../Starships/StarShips";
 import PlanetBP from "../PlanetBoilerPlate/PlanetBP";
@@ -7,6 +7,9 @@ import { Container, Grid } from "@material-ui/core";
 import Heading from "../../Heading/Heading";
 
 const HomeDisplay = ({ starShip, people, randNumb }) => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const classes = useStyles();
   const shipHomeDisplay = starShip.slice(0, 6);
   const peopleHomeDisplay = people.slice(0, 4);

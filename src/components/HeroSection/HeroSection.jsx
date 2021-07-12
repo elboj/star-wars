@@ -5,7 +5,7 @@ import hero from "../../assets/hero.jpg";
 import InputSearch from "../InputSearch/InputSearch";
 import Header from "../AppBar/Header";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, Router } from "react-router-dom";
 
 const HeroSection = ({
   setPHide,
@@ -33,29 +33,17 @@ const HeroSection = ({
               </Link>
               <div className="grow"></div>
               <Link to="/people">
-                <Typography
-                  className="link-text"
-                  variant="subtitle2"
-                  onClick={paginationHidden}
-                >
+                <Typography className="link-text" variant="subtitle2">
                   People
                 </Typography>
               </Link>
               <Link to="/ships">
-                <Typography
-                  variant="subtitle2"
-                  className="link-text"
-                  onClick={paginationHidden}
-                >
+                <Typography variant="subtitle2" className="link-text">
                   Ships
                 </Typography>
               </Link>
               <Link to="/planets">
-                <Typography
-                  variant="subtitle2"
-                  className="link-text"
-                  onClick={paginationHidden}
-                >
+                <Typography variant="subtitle2" className="link-text">
                   Planets
                 </Typography>
               </Link>
@@ -75,11 +63,11 @@ const HeroSection = ({
           </p>
           <p className="mhc-body">Starships and Planets</p>
         </article>
-        <InputSearch
+        {/* <InputSearch
           search={search}
           setSearch={setSearch}
           handleSearch={handleSearch}
-        />
+        /> */}
       </div>
     </section>
   );

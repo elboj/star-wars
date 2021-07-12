@@ -4,7 +4,7 @@ import { useState, useEffect, useReducer } from "react";
 import "./scss/styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { reducer } from "./reducer";
-import Header from "./components/AppBar/Header";
+import { useHistory } from "react-router";
 import { defaultState } from "./defaultState";
 import {
   HeroSection,
@@ -13,8 +13,10 @@ import {
   PeoplePaginator,
   PlanetPaginator,
 } from "./components/index";
+import InputSearch from "./components/InputSearch/InputSearch";
 import Posts from "./components/Paginator/Posts";
-import StarShipsRM from "./components/Paginator/StarShipsRM";
+import NotFound from "./NotFound";
+// import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -83,19 +85,16 @@ const App = () => {
   };
 
   const handleSearch = (e) => {
-    e.preventDefault();
-    setRm(false);
-    if (search.trim() === "") {
-      return;
-    }
-    const newData = state.allData.filter(
-      (data) =>
-        data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
-        checkName(data.name.substring(0, 3), search.substring(0, 3))
-    );
+    console.log("handle search working");
+    //  const newData = state.allData.filter(
+    //    (data) =>
+    //      data.name.toLowerCase().includes(search.toLowerCase().trim()) ||
+    //      checkName(data.name.substring(0, 3), search.substring(0, 3))
+    //  );
 
-    dispatch({ type: "SEARCH_DATA", payload: newData });
+    //  dispatch({ type: "SEARCH_DATA", payload: newData });
   };
+
   /************************************************************************
    * **********************************************************************
    */
@@ -127,6 +126,7 @@ const App = () => {
           paginationHidden={() => dispatch({ type: "PAGINATION_HIDDEN" })}
           homeDisplay={() => dispatch({ type: "HOME_DISPLAY" })}
         />
+        <InputSearch search={search} setSearch={setSearch} />
         <Switch>
           <Route
             path="/"
@@ -143,61 +143,62 @@ const App = () => {
           />
           <Route
             path="/people"
-            exact
-            component={() =>
-              state.pHide && (
-                <PeoplePaginator
-                  people={state.people}
-                  // setPeople={setPeople}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  indexOfLastPost={indexOfLastPost}
-                  indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={state.postsPerPage}
-                  handleChange={handleChange}
-                  randNumb={randNumb}
-                />
-              )
-            }
+            component={() => (
+              <PeoplePaginator
+                people={state.people}
+                // setPeople={setPeople}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                indexOfLastPost={indexOfLastPost}
+                indexOfFirstPost={indexOfFirstPost}
+                postsPerPage={state.postsPerPage}
+                handleChange={handleChange}
+                randNumb={randNumb}
+              />
+            )}
           />
 
           <Route
             path="/ships"
-            exact
-            component={() =>
-              state.pHide && (
-                <ShipPaginator
-                  starShip={state.starShip}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  indexOfLastPost={indexOfLastPost}
-                  indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={state.postsPerPage}
-                  handleChange={handleChange}
-                  randNumb={randNumb}
-                  setRm={setRm}
-                />
-              )
-            }
+            component={() => (
+              <ShipPaginator
+                starShip={state.starShip}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                indexOfLastPost={indexOfLastPost}
+                indexOfFirstPost={indexOfFirstPost}
+                postsPerPage={state.postsPerPage}
+                handleChange={handleChange}
+                randNumb={randNumb}
+                setRm={setRm}
+              />
+            )}
           />
           <Route
             path="/planets"
-            exact
-            component={() =>
-              state.pHide && (
-                <PlanetPaginator
-                  planet={state.planet}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  indexOfLastPost={indexOfLastPost}
-                  indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={state.postsPerPage}
-                  handleChange={handleChange}
-                  randNumb={randNumb}
-                />
-              )
-            }
+            component={() => (
+              <PlanetPaginator
+                planet={state.planet}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                indexOfLastPost={indexOfLastPost}
+                indexOfFirstPost={indexOfFirstPost}
+                postsPerPage={state.postsPerPage}
+                handleChange={handleChange}
+                randNumb={randNumb}
+              />
+            )}
           />
+          <Route
+            path="/posts"
+            component={() => (
+              <Posts
+                searchResult={state.searchResult}
+                backHome={() => dispatch({ type: "NO_RESULT" })}
+              />
+            )}
+          />
+          <Route component={() => <NotFound />} />
         </Switch>
         {/* <Route
           path="/readmore"

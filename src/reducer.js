@@ -12,13 +12,13 @@ export const reducer = (state, action) => {
       isLoading: false,
     };
   }
-  if (action.type === "PAGINATION_HIDDEN") {
-    return {
-      ...state,
-      pHide: true,
-      pg: false,
-    };
-  }
+  // if (action.type === "PAGINATION_HIDDEN") {
+  //   return {
+  //     ...state,
+  //     pHide: true,
+  //     pg: false,
+  //   };
+  // }
   if (action.type === "HOME_DISPLAY") {
     return {
       ...state,

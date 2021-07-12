@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Heading from "../Heading/Heading";
 import StarShips from "../HomeDisplay/Starships/StarShips";
@@ -14,6 +14,9 @@ function ShipPaginator({
   randNumb,
   setRm,
 }) {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   const currentPosts = starShip.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(starShip.length / postsPerPage);
 
