@@ -8,4 +8,5 @@ export const defaultState = {
   pg: false,
   hide: true,
   searchResult: [],
+  postsPerPage: 10,
 };

@@ -5,7 +5,7 @@ import "./scss/styles.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { reducer } from "./reducer";
 import Header from "./components/AppBar/Header";
-//import { defaultState } from "./defaultState";
+import { defaultState } from "./defaultState";
 import {
   HeroSection,
   HomeDisplay,
@@ -16,29 +16,15 @@ import {
 import Posts from "./components/Paginator/Posts";
 import StarShipsRM from "./components/Paginator/StarShipsRM";
 
-const defaultState = {
-  people: [],
-  planet: [],
-  starShip: [],
-  allData: [],
-  isLoading: true,
-  pHide: false,
-  pg: false,
-  hide: true,
-  searchResult: [],
-};
-
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  console.log(defaultState);
   const [rm, setRm] = useState(true);
 
   //PAGINATION DATA
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPagePerPost] = useState(10);
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const indexOfLastPost = currentPage * state.postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - state.postsPerPage;
 
   //FUNCTION THAT CHANGES PAGINATION PAGE
   const handleChange = (event, value) => {
@@ -167,7 +153,7 @@ const App = () => {
                   setCurrentPage={setCurrentPage}
                   indexOfLastPost={indexOfLastPost}
                   indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={postsPerPage}
+                  postsPerPage={state.postsPerPage}
                   handleChange={handleChange}
                   randNumb={randNumb}
                 />
@@ -186,7 +172,7 @@ const App = () => {
                   setCurrentPage={setCurrentPage}
                   indexOfLastPost={indexOfLastPost}
                   indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={postsPerPage}
+                  postsPerPage={state.postsPerPage}
                   handleChange={handleChange}
                   randNumb={randNumb}
                   setRm={setRm}
@@ -205,7 +191,7 @@ const App = () => {
                   setCurrentPage={setCurrentPage}
                   indexOfLastPost={indexOfLastPost}
                   indexOfFirstPost={indexOfFirstPost}
-                  postsPerPage={postsPerPage}
+                  postsPerPage={state.postsPerPage}
                   handleChange={handleChange}
                   randNumb={randNumb}
                 />
