@@ -66,11 +66,6 @@ const App = () => {
     allDataFetch();
   }, []);
 
-  //images random number
-  const randNumb = (x) => {
-    return Math.floor(Math.random() * x);
-  };
-
   if (state.isLoading) {
     return (
       <main>
