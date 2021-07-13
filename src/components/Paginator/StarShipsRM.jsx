@@ -28,7 +28,9 @@ function StarShipsRM({ randNumb, shipName }) {
             />
           </CardActionArea>
           <CardContent>
-            <Typography variant="h5">{shipName}</Typography>
+            <Typography variant="h5" gutterBottom>
+              {shipName}
+            </Typography>
             <Typography variant="body2" align="justify">
               A powerful pursuit craft made famous by Jango Fett in the days of
               the Republic, this ship was inherited by Boba Fett for his career
