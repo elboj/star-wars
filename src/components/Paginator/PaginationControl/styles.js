@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     boxShadow: "none",
+    paddingTop: "2rem",
   },
 }));
 

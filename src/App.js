@@ -20,8 +20,6 @@ import StarShipsRM from "./components/Paginator/StarShipsRM";
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
-
-  //PAGINATION DATA
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [shipName, setShipName] = useState("");
